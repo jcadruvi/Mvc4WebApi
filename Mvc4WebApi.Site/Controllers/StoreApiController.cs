@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
+using Mvc.WebApi.Service;
 using Mvc4.ServiceStack.Dto.Request;
 using Mvc4.ServiceStack.Dto.Response;
 using Mvc4.WebApi.Models;
@@ -14,17 +15,25 @@ namespace Mvc4.WebApi.Controllers
 {
     public class StoreApiController : ApiController
     {
-        private IEnumerable<StoreResponse> _stores;
+        private IStoreService _storeService;
+
+        public StoreApiController()
+        {
+            _storeService = new StoreService();
+        }
 
         [HttpDelete]
         public void Delete([ModelBinder] StoreRequest store)
         {
-            
+            if (store.Id.HasValue)
+            {
+                _storeService.DeleteStore(store.Id.Value);
+            }
         }
 
         public StoreResponse GetStore([ModelBinder] StoreRequest store)
         {
-            return (from s in Stores()
+            return (from s in _storeService.GetStores()
                     where s.Id == store.Id
                     select s).First();
         }
@@ -55,7 +64,7 @@ namespace Mvc4.WebApi.Controllers
 
         public IEnumerable<StoreResponse> GetStores()
         {
-            return Stores();
+            return _storeService.GetStores();
         }
 
         public IEnumerable<KeyValuePair<string, string>> GetSubOrgLevels([ModelBinder] SubOrgLevelRequest request)
@@ -88,53 +97,5 @@ namespace Mvc4.WebApi.Controllers
         {
             return null;
         }
-
-        private IEnumerable<StoreResponse> Stores()
-        {
-            ICollection<StoreResponse> response = new Collection<StoreResponse>();
-            response.Add(new StoreResponse
-            {
-                RetailerId = 1,
-                RetailerName = "Best Buy",
-                Id = 1,
-                Name = "Store 1",
-                Number = "1",
-                City = "San Jose",
-                State = "CA",
-                OrgLevelId = 1,
-                OrgLevelName = "1 - Bay Area",
-                SubOrgLevelId = 2,
-                SubOrgLevelName = "2 - San Jose"
-            });
-            response.Add(new StoreResponse
-            {
-                RetailerId = 1,
-                RetailerName = "Best Buy",
-                Id = 2,
-                Name = "Store 2",
-                Number = "2",
-                City = "San Jose",
-                State = "CA",
-                OrgLevelId = 1,
-                OrgLevelName = "1 - Bay Area",
-                SubOrgLevelId = 2,
-                SubOrgLevelName = "2 - San Jose"
-            });
-            response.Add(new StoreResponse
-            {
-                RetailerId = 1,
-                RetailerName = "Best Buy",
-                Id = 3,
-                Name = "Store 3",
-                Number = "3",
-                City = "San Jose",
-                State = "CA",
-                OrgLevelId = 1,
-                OrgLevelName = "1 - Bay Area",
-                SubOrgLevelId = 2,
-                SubOrgLevelName = "2 - San Jose"
-            });
-            return response;
-        } 
     }
 }

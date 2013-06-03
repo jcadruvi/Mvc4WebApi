@@ -31,7 +31,7 @@
         
         $.ajax({
             success: function (result) {
-                
+                self.storeGridData.dataSource.read();
             },
             type: 'DELETE',
             url: 'api/StoreApi?id=' + id

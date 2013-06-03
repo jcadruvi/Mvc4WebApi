@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4.WebApi.Site", "Mvc4Web
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4.WebApi.Dto", "Mc4.WebApi.Dto\Mvc4.WebApi.Dto.csproj", "{A9845E05-78A8-40A9-B7D2-831D5A897F9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4.WebApi.Repository", "Mvc4.WebApi.Repository\Mvc4.WebApi.Repository.csproj", "{1DDD0FC0-08EE-489E-AD90-6FD2E74CEB48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.WebApi.Service", "Mvc.WebApi.Service\Mvc.WebApi.Service.csproj", "{7C00A3FB-2FB3-4093-83AA-1E6E8CA90C3B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,14 @@ Global
 		{A9845E05-78A8-40A9-B7D2-831D5A897F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9845E05-78A8-40A9-B7D2-831D5A897F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9845E05-78A8-40A9-B7D2-831D5A897F9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DDD0FC0-08EE-489E-AD90-6FD2E74CEB48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DDD0FC0-08EE-489E-AD90-6FD2E74CEB48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DDD0FC0-08EE-489E-AD90-6FD2E74CEB48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DDD0FC0-08EE-489E-AD90-6FD2E74CEB48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C00A3FB-2FB3-4093-83AA-1E6E8CA90C3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C00A3FB-2FB3-4093-83AA-1E6E8CA90C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C00A3FB-2FB3-4093-83AA-1E6E8CA90C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C00A3FB-2FB3-4093-83AA-1E6E8CA90C3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

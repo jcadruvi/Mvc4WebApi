@@ -245,6 +245,10 @@
       <Project>{a9845e05-78a8-40a9-b7d2-831d5a897f9a}</Project>
       <Name>Mvc4.WebApi.Dto</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mvc.WebApi.Service\Mvc.WebApi.Service.csproj">
+      <Project>{7c00a3fb-2fb3-4093-83aa-1e6e8ca90c3b}</Project>
+      <Name>Mvc.WebApi.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
