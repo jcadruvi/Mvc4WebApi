@@ -67,6 +67,10 @@
         });
     };
 
+    self.onStoreSuccess = function () {
+        $('#storeGrid').data('kendoGrid').dataSource.read();
+    };
+
     self.setObservables = function() {
         self.city = ko.observable();
         self.id = ko.observable();

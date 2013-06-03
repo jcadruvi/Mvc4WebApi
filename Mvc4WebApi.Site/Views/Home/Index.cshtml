@@ -9,7 +9,7 @@
 <div id="storeGrid"></div>
 @{ Html.EnableClientValidation(); }
 
-@using (Ajax.BeginForm("StoreApi/Post", "api", new AjaxOptions {}))
+@using (Html.BeginForm("StoreApi/Post", "api", FormMethod.Post, new { id = "storesForm" }))
 {
     <input class="k-button storeButton" type="submit" value="Save" />
     <input class="k-button storeButton" data-bind="click: onDeleteClick" type="button" value="Delete" />
@@ -77,10 +77,16 @@
 @Scripts.Render("~/Scripts/store.javascript")
 
 <script type="text/javascript">
-
     (function () {
         var storeViewModel = new StoreViewModel();
         storeViewModel.setObservables();
+        $('#storesForm').ajaxForm({
+            dataType: 'json',
+            iframe: false,
+            success: storeViewModel.onStoreSuccess,
+            type: 'POST'
+
+        });
         $('#orgLevelId').kendoComboBox({
             change: function () {
                 var subOrgLevelComboBoxData = $('#subOrgLevelId').data('kendoComboBox');

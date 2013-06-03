@@ -95,6 +95,7 @@ namespace Mvc4.WebApi.Controllers
 
         public object Post(StoreRequest store)
         {
+            _storeService.UpdateStore(store);
             return null;
         }
     }

@@ -30,7 +30,8 @@ namespace Mvc4.WebApi.App_Start
                          "~/Content/Index.css"));
 
             bundles.Add(new ScriptBundle("~/Scripts/layout.bundle.javascript")
-                .Include("~/Scripts/jquery-1.9.1.js",
+                .Include("~/Scripts/jquery.form.js",
+                         "~/Scripts/jquery-1.9.1.js",
                          "~/Scripts/knockout-2.2.1.min.js",
                          "~/Scripts/knockout.mapping-latest.js",
                          "~/Scripts/modernizr-2.6.2.js",
