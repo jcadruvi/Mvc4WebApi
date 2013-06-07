@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4.WebApi.Site", "Mvc4WebApi.Site\Mvc4.WebApi.Site.csproj", "{F2A1F48E-265A-4103-84ED-742A64FEE6FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4.WebApi.Dto", "Mc4.WebApi.Dto\Mvc4.WebApi.Dto.csproj", "{A9845E05-78A8-40A9-B7D2-831D5A897F9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4.WebApi.ServiceModel", "Mvc4.WebApi.ServiceModel\Mvc4.WebApi.ServiceModel.csproj", "{A9845E05-78A8-40A9-B7D2-831D5A897F9A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4.WebApi.Repository", "Mvc4.WebApi.Repository\Mvc4.WebApi.Repository.csproj", "{1DDD0FC0-08EE-489E-AD90-6FD2E74CEB48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.WebApi.Service", "Mvc.WebApi.Service\Mvc.WebApi.Service.csproj", "{7C00A3FB-2FB3-4093-83AA-1E6E8CA90C3B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4.WebApi.Service", "Mvc4.WebApi.Service\Mvc4.WebApi.Service.csproj", "{7C00A3FB-2FB3-4093-83AA-1E6E8CA90C3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

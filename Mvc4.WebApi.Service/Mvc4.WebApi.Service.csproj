@@ -44,9 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mc4.WebApi.Dto\Mvc4.WebApi.Dto.csproj">
+    <ProjectReference Include="..\Mvc4.WebApi.ServiceModel\Mvc4.WebApi.ServiceModel.csproj">
       <Project>{a9845e05-78a8-40a9-b7d2-831d5a897f9a}</Project>
-      <Name>Mvc4.WebApi.Dto</Name>
+      <Name>Mvc4.WebApi.ServiceModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mvc4.WebApi.Repository\Mvc4.WebApi.Repository.csproj">
       <Project>{1ddd0fc0-08ee-489e-ad90-6fd2e74ceb48}</Project>
