@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mvc4.ServiceStack.Dto.Request
+namespace Mvc4.ServiceStack.ServiceModel.Request
 {
     public class StoreRequest
     {

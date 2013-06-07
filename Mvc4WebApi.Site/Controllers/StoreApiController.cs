@@ -7,8 +7,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using Mvc.WebApi.Service;
-using Mvc4.ServiceStack.Dto.Request;
-using Mvc4.ServiceStack.Dto.Response;
+using Mvc4.ServiceStack.ServiceModel.Request;
+using Mvc4.ServiceStack.ServiceModel.Response;
 using Mvc4.WebApi.Models;
 
 namespace Mvc4.WebApi.Controllers

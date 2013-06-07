@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Mvc4.ServiceStack.Dto.Request;
-using Mvc4.ServiceStack.Dto.Response;
+using Mvc4.ServiceStack.ServiceModel.Request;
+using Mvc4.ServiceStack.ServiceModel.Response;
 using Mvc4.WebApi.Repository;
 
 namespace Mvc.WebApi.Service

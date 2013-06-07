@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Mvc4.WebApi.App_Start;
-using Mvc4.ServiceStack.Dto.Request;
+using Mvc4.ServiceStack.ServiceModel.Request;
 
 namespace Mvc4.WebApi
 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mvc4.ServiceStack.Dto.Response
+namespace Mvc4.ServiceStack.ServiceModel.Response
 {
     public class StoreResponse
     {

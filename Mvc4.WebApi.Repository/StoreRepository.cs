@@ -4,8 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Mvc4.ServiceStack.Dto.Request;
-using Mvc4.ServiceStack.Dto.Response;
+using Mvc4.ServiceStack.ServiceModel.Request;
+using Mvc4.ServiceStack.ServiceModel.Response;
 
 namespace Mvc4.WebApi.Repository
 {
