@@ -14,7 +14,7 @@ namespace Mvc.WebApi.Service
         private IStoreRepository repository;
         public StoreService()
         {
-            repository = new StoreRepository();
+            repository = StoreRepository.Instance;
         }
         public void DeleteStore(int id)
         {
