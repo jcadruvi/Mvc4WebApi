@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
-using Mvc.WebApi.Service;
+using Mvc4.WebApi.Service;
 using Mvc4.WebApi.ServiceModel.Request;
 using Mvc4.WebApi.ServiceModel.Response;
 using Mvc4.WebApi.Models;
@@ -17,9 +17,9 @@ namespace Mvc4.WebApi.Controllers
     {
         private IStoreService _storeService;
 
-        public StoreApiController()
+        public StoreApiController(IStoreService storeService)
         {
-            _storeService = new StoreService();
+            _storeService = storeService;
         }
 
         [HttpDelete]

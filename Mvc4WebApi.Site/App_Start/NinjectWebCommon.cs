@@ -5,11 +5,15 @@ namespace Mvc4.WebApi.App_Start
 {
     using System;
     using System.Web;
+    using System.Web.Http;
+    using System.Web.Mvc;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
     using Ninject.Web.Common;
+    using Mvc4.WebApi.NinjectWebApi;
+    using Mvc4.WebApi.Service;
 
     public static class NinjectWebCommon 
     {
@@ -44,6 +48,7 @@ namespace Mvc4.WebApi.App_Start
             kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
             
             RegisterServices(kernel);
+            GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
             return kernel;
         }
 
@@ -53,6 +58,7 @@ namespace Mvc4.WebApi.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IStoreService>().To<StoreService>();
         }        
     }
 }
