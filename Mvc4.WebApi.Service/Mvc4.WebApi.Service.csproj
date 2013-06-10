@@ -7,8 +7,8 @@
     <ProjectGuid>{7C00A3FB-2FB3-4093-83AA-1E6E8CA90C3B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mvc.WebApi.Service</RootNamespace>
-    <AssemblyName>Mvc.WebApi.Service</AssemblyName>
+    <RootNamespace>Mvc4.WebApi.Service</RootNamespace>
+    <AssemblyName>Mvc4.WebApi.Service</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

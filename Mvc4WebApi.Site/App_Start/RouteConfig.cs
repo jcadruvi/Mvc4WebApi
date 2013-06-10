@@ -12,7 +12,6 @@ namespace Mvc4.WebApi
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.IgnoreRoute("servicestack/{*pathInfo}");
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

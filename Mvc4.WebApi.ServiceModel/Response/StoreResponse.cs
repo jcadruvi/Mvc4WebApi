@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace Mvc4.ServiceStack.ServiceModel.Response
+namespace Mvc4.WebApi.ServiceModel.Response
 {
     public class StoreResponse
     {
