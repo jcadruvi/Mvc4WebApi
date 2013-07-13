@@ -7,8 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using Mvc4.WebApi.Service;
-using Mvc4.WebApi.ServiceModel.Request;
-using Mvc4.WebApi.ServiceModel.Response;
+using Mvc4.WebApi.Model;
 using Mvc4.WebApi.Models;
 
 namespace Mvc4.WebApi.Controllers
@@ -23,7 +22,7 @@ namespace Mvc4.WebApi.Controllers
         }
 
         [HttpDelete]
-        public void Delete([ModelBinder] StoreRequest store)
+        public void Delete([ModelBinder] Store store)
         {
             if (store.Id.HasValue)
             {
@@ -31,7 +30,7 @@ namespace Mvc4.WebApi.Controllers
             }
         }
 
-        public StoreResponse GetStore([ModelBinder] StoreRequest store)
+        public Store GetStore([ModelBinder] Store store)
         {
             return (from s in _storeService.GetStores()
                     where s.Id == store.Id
@@ -62,12 +61,12 @@ namespace Mvc4.WebApi.Controllers
             return response;
         }
 
-        public IEnumerable<StoreResponse> GetStores()
+        public IEnumerable<Store> GetStores()
         {
             return _storeService.GetStores();
         }
 
-        public IEnumerable<KeyValuePair<string, string>> GetSubOrgLevels([ModelBinder] SubOrgLevelRequest request)
+        public IEnumerable<KeyValuePair<string, string>> GetSubOrgLevels([ModelBinder] SubOrgLevel request)
         {
             ICollection<KeyValuePair<string, string>> response = new Collection<KeyValuePair<string, string>>();
 
@@ -93,7 +92,7 @@ namespace Mvc4.WebApi.Controllers
             return response;
         }
 
-        public object Post(StoreRequest store)
+        public object Post(Store store)
         {
             _storeService.UpdateStore(store);
             return null;

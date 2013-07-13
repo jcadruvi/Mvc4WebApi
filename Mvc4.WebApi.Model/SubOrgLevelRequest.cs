@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mvc4.WebApi.ServiceModel.Request
+namespace Mvc4.WebApi.Model
 {
-    public class SubOrgLevelRequest
+    public class SubOrgLevel
     {
         public int OrgLevelId { get; set; }
     }

@@ -44,7 +44,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mvc4.WebApi.ServiceModel\Mvc4.WebApi.Model.csproj">
+    <ProjectReference Include="..\Mvc4.WebApi.Model\Mvc4.WebApi.Model.csproj">
       <Project>{a9845e05-78a8-40a9-b7d2-831d5a897f9a}</Project>
       <Name>Mvc4.WebApi.Model</Name>
     </ProjectReference>

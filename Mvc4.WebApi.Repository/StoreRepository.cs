@@ -4,8 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Mvc4.WebApi.ServiceModel.Request;
-using Mvc4.WebApi.ServiceModel.Response;
+using Mvc4.WebApi.Model;
 
 namespace Mvc4.WebApi.Repository
 {
@@ -13,14 +12,14 @@ namespace Mvc4.WebApi.Repository
     {
         private static readonly StoreRepository _instance = new StoreRepository();
         public static StoreRepository Instance { get { return _instance; } }
-        private static IList<StoreResponse> _stores;
+        private static IList<Store> _stores;
         static StoreRepository()
         {
         }
         private StoreRepository()
         {
-            _stores = new List<StoreResponse>();
-            _stores.Add(new StoreResponse
+            _stores = new List<Store>();
+            _stores.Add(new Store
             {
                 RetailerId = 1,
                 RetailerName = "Best Buy",
@@ -34,7 +33,7 @@ namespace Mvc4.WebApi.Repository
                 SubOrgLevelId = 2,
                 SubOrgLevelName = "2 - San Jose"
             });
-            _stores.Add(new StoreResponse
+            _stores.Add(new Store
             {
                 RetailerId = 1,
                 RetailerName = "Best Buy",
@@ -48,7 +47,7 @@ namespace Mvc4.WebApi.Repository
                 SubOrgLevelId = 2,
                 SubOrgLevelName = "2 - San Jose"
             });
-            _stores.Add(new StoreResponse
+            _stores.Add(new Store
             {
                 RetailerId = 1,
                 RetailerName = "Best Buy",
@@ -73,11 +72,11 @@ namespace Mvc4.WebApi.Repository
                 }
             }
         }
-        public IEnumerable<StoreResponse> GetStores()
+        public IEnumerable<Store> GetStores()
         {
             return _stores;
         }
-        public void UpdateStore(StoreRequest store)
+        public void UpdateStore(Store store)
         {
             var updateStore = _stores.First(s => s.Id == store.Id);
             if (updateStore != null)
