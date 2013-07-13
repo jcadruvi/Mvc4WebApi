@@ -257,9 +257,9 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mvc4.WebApi.ServiceModel\Mvc4.WebApi.ServiceModel.csproj">
+    <ProjectReference Include="..\Mvc4.WebApi.ServiceModel\Mvc4.WebApi.Model.csproj">
       <Project>{a9845e05-78a8-40a9-b7d2-831d5a897f9a}</Project>
-      <Name>Mvc4.WebApi.ServiceModel</Name>
+      <Name>Mvc4.WebApi.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mvc4.WebApi.Service\Mvc4.WebApi.Service.csproj">
       <Project>{7c00a3fb-2fb3-4093-83aa-1e6e8ca90c3b}</Project>
