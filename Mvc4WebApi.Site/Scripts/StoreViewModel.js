@@ -32,6 +32,14 @@
         $.ajax({
             success: function (result) {
                 self.storeGridData.dataSource.read();
+                self.city(null);
+                self.retailerIdCombo.value(null);
+                self.id("");
+                self.name("");
+                self.number("");
+                self.state("");
+                self.orgLevelCombo.value(null);
+                self.subOrgLevelCombo.value(null);
             },
             type: 'DELETE',
             url: 'api/StoreApi?id=' + id

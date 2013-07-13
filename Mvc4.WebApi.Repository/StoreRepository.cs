@@ -79,9 +79,7 @@ namespace Mvc4.WebApi.Repository
         }
         public void UpdateStore(StoreRequest store)
         {
-            var updateStore = (from s in _stores
-                               where s.Id == store.Id
-                               select s).First();
+            var updateStore = _stores.First(s => s.Id == store.Id);
             if (updateStore != null)
             {
                 updateStore.City = store.City;
