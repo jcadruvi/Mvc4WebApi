@@ -1,4 +1,5 @@
 Mvc4WebApi
 ==========
 
-A test project that I used to learn using Web Api in an MVC4 Web Application. 
+This is a test project that I used to lewrn more about Web API. The project hs the following fetures:
+ 
