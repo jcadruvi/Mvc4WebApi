@@ -182,13 +182,13 @@
                 }
             },
             columns: [{
-                field: "RetailerName",
-                title: "Retailer Name",
+                    field: "RetailerName",
+                    title: "Retailer Name",
                     width: "120px"
                 },
                 {
-                field: "Id",
-                title: "Store Id",
+                    field: "Id",
+                    title: "Store Id",
                     width: "70px"
                 },
                 {
@@ -218,6 +218,17 @@
                 }]
         });
         storeViewModel.storeGridData = $('#storeGrid').data('kendoGrid');
+        searchRow = $('<tr>' +
+                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input mobitorSearch mobitorTextSearch" id="searchRetailerName" type="search" style="width:100%;" /></span></td>' +
+                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input mobitorSearch mobitorTextSearch" id="searchStoreId" type="search" style="width:100%;" /></span></td>' +
+                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input mobitorSearch mobitorTextSearch" id="searchStoreName" type="search" style="width:100%;" /></span></td>' +
+                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input mobitorSearch mobitorTextSearch" id="searchStoreNumber" type="search" style="width:100%;" /></span></td>' +
+                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input mobitorSearch mobitorTextSearch" id="searchCity" type="search" style="width:100%;" /></span></td>' +
+                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input mobitorSearch mobitorTextSearch" id="searchState" type="search" style="width:100%;" /></span></td>' +
+                  '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchOrgLevel" style="width:100%;" /></td>' +
+                  '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchSubOrgLevel" style="width:100%;" /></td>' +
+                  '</tr>');
+        storeViewModel.storeGridData.thead.append(searchRow);
         $('#subOrgLevelId').kendoComboBox({
             autoBind: false,
             cascadeFrom: "orgLevelId",
