@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20617.1 PREVIEW
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4.WebApi.Site", "Mvc4WebApi.Site\Mvc4.WebApi.Site.csproj", "{F2A1F48E-265A-4103-84ED-742A64FEE6FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4.WebApi.ServiceModel", "Mvc4.WebApi.ServiceModel\Mvc4.WebApi.ServiceModel.csproj", "{A9845E05-78A8-40A9-B7D2-831D5A897F9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4.WebApi.Model", "Mvc4.WebApi.Model\Mvc4.WebApi.Model.csproj", "{A9845E05-78A8-40A9-B7D2-831D5A897F9A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4.WebApi.Repository", "Mvc4.WebApi.Repository\Mvc4.WebApi.Repository.csproj", "{1DDD0FC0-08EE-489E-AD90-6FD2E74CEB48}"
 EndProject

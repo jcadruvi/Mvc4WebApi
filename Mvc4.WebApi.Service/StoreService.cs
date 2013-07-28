@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Mvc4.WebApi.ServiceModel.Request;
-using Mvc4.WebApi.ServiceModel.Response;
+using Mvc4.WebApi.Model;
 using Mvc4.WebApi.Repository;
 
 namespace Mvc4.WebApi.Service
@@ -20,11 +19,11 @@ namespace Mvc4.WebApi.Service
         {
             repository.DeleteStore(id);
         }
-        public IEnumerable<StoreResponse> GetStores()
+        public IEnumerable<Store> GetStores()
         {
             return repository.GetStores();
         }
-        public void UpdateStore(StoreRequest store)
+        public void UpdateStore(Store store)
         {
             repository.UpdateStore(store);
         }

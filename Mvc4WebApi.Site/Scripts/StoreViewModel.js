@@ -8,6 +8,7 @@
     self.number = null;
     self.orgLevelCombo = null;
     self.retailerIdCombo = null;
+    self.showDetail = null;
     self.state = null;
     self.storeGridData = null;
     self.subOrgLevelCombo = null;
@@ -48,7 +49,8 @@
 
     self.onStoreGridChanged = function() {
         var postData = {};
-        
+
+        self.showDetail(true);
         postData.Id = getSelectedStoreId();
 
         $.ajax({
@@ -84,6 +86,7 @@
         self.id = ko.observable();
         self.name = ko.observable();
         self.number = ko.observable();
+        self.showDetail = ko.observable();
         self.state = ko.observable();
         ko.applyBindings(self);
     };
