@@ -91,7 +91,7 @@ namespace Mvc4.WebApi.Controllers
 
             return response;
         }
-
+        [HttpPost]
         public object Post(Store store)
         {
             _storeService.UpdateStore(store);
