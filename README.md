@@ -14,7 +14,9 @@ Talk about it from a web api point of view. Teach them web api:
  
 Talk about grid:
 	Click on row diplays detail.
+		tlk abou the call.
 	Filter rows on enter or lose focus.
+		Need to use knockout.
 
 Calls:
 	Select stores
