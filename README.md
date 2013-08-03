@@ -5,10 +5,12 @@ This is a project that I used to learn more about Web API. This project intially
 
 This project uses MVC for the view and Web API for the ajax calls. The view contains the initial grid and the detail html. The detail is hidden initialy and knockout is used to show the detail section when a grid row is selected. 
 
+Take the store empty parameters and show how it would change with web api.
 
 Talk about the following web api things:
 
 How to call an action or a parameter.
+derive from api controller 
 ninject
 Model binding
 Data annotations.
