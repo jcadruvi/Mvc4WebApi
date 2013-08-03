@@ -12,7 +12,6 @@ namespace Mvc4.WebApi.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using Mvc4.WebApi.NinjectWebApi;
     using Mvc4.WebApi.Service;
 
     public static class NinjectWebCommon 
