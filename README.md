@@ -18,7 +18,7 @@ Data annotations.
 
 
 Need to finish the filter of store search.
- 
+Fix that territory is not displayed correctly.
 
  
  Calls:

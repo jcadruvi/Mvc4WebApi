@@ -6,12 +6,12 @@
     self.id = null;
     self.name = null;
     self.number = null;
-    self.orgLevelCombo = null;
+    self.districtCombo = null;
     self.retailerIdCombo = null;
     self.showDetail = null;
     self.state = null;
     self.storeGridData = null;
-    self.subOrgLevelCombo = null;
+    self.territoryCombo = null;
 
     var getSelectedStoreId = function () {
         var dataItem;
@@ -39,8 +39,8 @@
                 self.name("");
                 self.number("");
                 self.state("");
-                self.orgLevelCombo.value(null);
-                self.subOrgLevelCombo.value(null);
+                self.districtCombo.value(null);
+                self.territoryCombo.value(null);
             },
             type: 'DELETE',
             url: 'api/StoreApi?id=' + id
@@ -62,14 +62,14 @@
                 self.name(result.Name);
                 self.number(result.Number);
                 self.state(result.State);
-                if (self.orgLevelCombo) {
-                    self.orgLevelCombo.value(result.OrgLevelId);
+                if (self.districtCombo) {
+                    self.districtCombo.value(result.DistrictId);
                 }
                 if (self.retailerIdCombo) {
                     self.retailerIdCombo.value(result.RetailerId);
                 }
-                if (self.subOrgLevelCombo) {
-                    self.subOrgLevelCombo.value(result.SubOrgLevelId);
+                if (self.territoryCombo) {
+                    self.territoryCombo.value(result.TerritoryId);
                 }
             },
             type: 'GET',

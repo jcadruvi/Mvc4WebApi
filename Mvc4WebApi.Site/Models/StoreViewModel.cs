@@ -19,7 +19,7 @@ namespace Mvc4.WebApi.Models
         public string City { get; set; }
         [Required]
         public string State { get; set; }
-        public int? OrgLevelId { get; set; }
-        public int? SubOrgLevelId { get; set; }
+        public int? DistrictId { get; set; }
+        public int? TerritoryId { get; set; }
     }
 }

@@ -28,10 +28,10 @@ namespace Mvc4.WebApi.Repository
                 Number = "1",
                 City = "San Jose",
                 State = "CA",
-                OrgLevelId = 1,
-                OrgLevelName = "1 - Bay Area",
-                SubOrgLevelId = 2,
-                SubOrgLevelName = "2 - San Jose"
+                DistrictId = 1,
+                DistrictName = "1 - Bay Area",
+                TerritoryId = 2,
+                TerritoryName = "2 - San Jose"
             });
             _stores.Add(new Store
             {
@@ -42,10 +42,10 @@ namespace Mvc4.WebApi.Repository
                 Number = "2",
                 City = "San Jose",
                 State = "CA",
-                OrgLevelId = 1,
-                OrgLevelName = "1 - Bay Area",
-                SubOrgLevelId = 2,
-                SubOrgLevelName = "2 - San Jose"
+                DistrictId = 1,
+                DistrictName = "1 - Bay Area",
+                TerritoryId = 2,
+                TerritoryName = "2 - San Jose"
             });
             _stores.Add(new Store
             {
@@ -56,10 +56,10 @@ namespace Mvc4.WebApi.Repository
                 Number = "3",
                 City = "San Jose",
                 State = "CA",
-                OrgLevelId = 1,
-                OrgLevelName = "1 - Bay Area",
-                SubOrgLevelId = 2,
-                SubOrgLevelName = "2 - San Jose"
+                DistrictId = 1,
+                DistrictName = "1 - Bay Area",
+                TerritoryId = 2,
+                TerritoryName = "2 - San Jose"
             });
         }
         public void DeleteStore(int id)
@@ -84,10 +84,10 @@ namespace Mvc4.WebApi.Repository
                 updateStore.City = store.City;
                 updateStore.Name = store.Name;
                 updateStore.Number = store.Number;
-                updateStore.OrgLevelId = store.OrgLevelId;
+                updateStore.DistrictId = store.DistrictId;
                 updateStore.RetailerId = store.RetailerId;
                 updateStore.State = store.State;
-                updateStore.SubOrgLevelId = store.SubOrgLevelId;
+                updateStore.TerritoryId = store.TerritoryId;
             }
         }
     }

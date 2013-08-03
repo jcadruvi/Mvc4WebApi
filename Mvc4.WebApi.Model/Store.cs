@@ -15,9 +15,9 @@ namespace Mvc4.WebApi.Model
         public string Number { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public int? OrgLevelId { get; set; }
-        public string OrgLevelName { get; set; }
-        public int? SubOrgLevelId { get; set; }
-        public string SubOrgLevelName { get; set; }
+        public int? DistrictId { get; set; }
+        public string DistrictName { get; set; }
+        public int? TerritoryId { get; set; }
+        public string TerritoryName { get; set; }
     }
 }

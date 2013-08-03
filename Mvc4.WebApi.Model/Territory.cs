@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Mvc4.WebApi.Model
 {
-    public class SubOrgLevel
+    public class Territory
     {
-        public int OrgLevelId { get; set; }
+        public int DistrictId { get; set; }
     }
 }

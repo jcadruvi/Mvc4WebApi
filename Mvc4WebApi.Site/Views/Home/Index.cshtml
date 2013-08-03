@@ -65,17 +65,17 @@
             <div class="storeLine">
                 <span class="storeLabels">District</span>
                 <span>
-                    @Html.TextBoxFor(model => model.OrgLevelId, new { @id = "orgLevelId" })
+                    @Html.TextBoxFor(model => model.DistrictId, new { @id = "districtId" })
                 </span>
             </div>
-            <div class="storeLine">@Html.ValidationMessageFor(model => model.OrgLevelId)</div>
+            <div class="storeLine">@Html.ValidationMessageFor(model => model.DistrictId)</div>
             <div class="storeLine">
                 <span class="storeLabels">Territory</span>
                 <span>
-                    @Html.TextBoxFor(model => model.SubOrgLevelId, new { @id = "subOrgLevelId" })
+                    @Html.TextBoxFor(model => model.TerritoryId, new { @id = "territoryId" })
                 </span>
             </div>
-            <div class="storeLine">@Html.ValidationMessageFor(model => model.SubOrgLevelId)</div>
+            <div class="storeLine">@Html.ValidationMessageFor(model => model.TerritoryId)</div>
         </div>
     }
 
@@ -95,11 +95,11 @@
             type: 'POST'
 
         });
-        $('#orgLevelId').kendoComboBox({
+        $('#districtId').kendoComboBox({
             change: function () {
-                var subOrgLevelComboBoxData = $('#subOrgLevelId').data('kendoComboBox');
-                subOrgLevelComboBoxData.value(null);
-                subOrgLevelComboBoxData.dataSource.read();
+                var territoryComboBoxData = $('#territoryId').data('kendoComboBox');
+                territoryComboBoxData.value(null);
+                territoryComboBoxData.dataSource.read();
             },
             dataTextField: 'Value',
             dataValueField: 'Key',
@@ -108,7 +108,7 @@
                 transport: {
                     read: function (options) {
                         $.ajax({
-                            url: "api/StoreApi/GetOrgLevels",
+                            url: "api/StoreApi/GetDistricts",
                             success: function (result) {
                                 options.success(result);
                             },
@@ -120,7 +120,7 @@
             filter: "contains",
             suggest: true
         });
-        storeViewModel.orgLevelCombo = $('#orgLevelId').data('kendoComboBox');
+        storeViewModel.districtCombo = $('#districtId').data('kendoComboBox');
         $('#retailer').kendoComboBox({
             dataTextField: 'Value',
             dataValueField: 'Key',
@@ -181,10 +181,10 @@
                             Number: { type: "number" },
                             City: { type: "string" },
                             State: { type: "string" },
-                            OrgLevelName: { type: "string" },
-                            OrgLevelId: { type: "string" },
-                            SubOrgLevelName: { type: "string" },
-                            SubOrgLevelId: { type: "string" }
+                            DistrictName: { type: "string" },
+                            DistrictId: { type: "string" },
+                            TerritoryName: { type: "string" },
+                            TerritoryId: { type: "string" }
                         }
                     }
                 }
@@ -216,11 +216,11 @@
                     title: "State",
                     width: "60px"
                 }, {
-                    field: "OrgLevelName",
+                    field: "DistrictName",
                     title: "District",
                     width: "120px"
                 }, {
-                    field: "SubOrgLevelName",
+                    field: "TerritoryName",
                     title: "Territory",
                     width: "120px"
                 }]
@@ -233,13 +233,13 @@
                   '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" style="width:100%;" /></span></td>' +
                   '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" style="width:100%;" /></span></td>' +
                   '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" style="width:100%;" /></span></td>' +
-                  '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchOrgLevel" style="width:100%;" /></td>' +
-                  '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchSubOrgLevel" style="width:100%;" /></td>' +
+                  '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchDistrict" style="width:100%;" /></td>' +
+                  '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchTerritory" style="width:100%;" /></td>' +
                   '</tr>');
         storeViewModel.storeGridData.thead.append(searchRow);
-        $('#subOrgLevelId').kendoComboBox({
+        $('#territoryId').kendoComboBox({
             autoBind: false,
-            cascadeFrom: "orgLevelId",
+            cascadeFrom: "districtId",
             dataTextField: "Value",
             dataValueField: "Key",
             dataSource: {
@@ -248,11 +248,11 @@
                 transport: {
                     read: function (options) {
                         var postData = {};
-                        postData.OrgLevelId = $('#orgLevelId').data('kendoComboBox').value();
+                        postData.DistrictId = $('#districtId').data('kendoComboBox').value();
                         $.ajax({
                             data: postData,
                             dataType: 'json',
-                            url: "api/StoreApi/GetSubOrgLevels",
+                            url: "api/StoreApi/GetTerritorys",
                             success: function (result) {
                                 options.success(result);
                             },
@@ -264,11 +264,11 @@
             filter: "contains",
             suggest: true
         });
-        $('#searchOrgLevel').kendoComboBox({
+        $('#searchDistrict').kendoComboBox({
             change: function () {
-                var subOrgLevelComboBoxData = $('#searchSubOrgLevel').data('kendoComboBox');
-                subOrgLevelComboBoxData.value(null);
-                subOrgLevelComboBoxData.dataSource.read();
+                var territoryComboBoxData = $('#searchTerritory').data('kendoComboBox');
+                territoryComboBoxData.value(null);
+                territoryComboBoxData.dataSource.read();
             },
             dataTextField: 'Value',
             dataValueField: 'Key',
@@ -277,7 +277,7 @@
                 transport: {
                     read: function (options) {
                         $.ajax({
-                            url: "api/StoreApi/GetOrgLevels",
+                            url: "api/StoreApi/GetDistricts",
                             success: function (result) {
                                 options.success(result);
                             },
@@ -289,9 +289,9 @@
             filter: "contains",
             suggest: true
         });
-        $('#searchSubOrgLevel').kendoComboBox({
+        $('#searchTerritory').kendoComboBox({
             autoBind: false,
-            cascadeFrom: "searchOrgLevel",
+            cascadeFrom: "searchDistrict",
             dataTextField: "Value",
             dataValueField: "Key",
             dataSource: {
@@ -300,11 +300,11 @@
                 transport: {
                     read: function (options) {
                         var postData = {};
-                        postData.OrgLevelId = $('#searchOrgLevel').data('kendoComboBox').value();
+                        postData.DistrictId = $('#searchDistrict').data('kendoComboBox').value();
                         $.ajax({
                             data: postData,
                             dataType: 'json',
-                            url: "api/StoreApi/GetSubOrgLevels",
+                            url: "api/StoreApi/GetTerritorys",
                             success: function (result) {
                                 options.success(result);
                             },

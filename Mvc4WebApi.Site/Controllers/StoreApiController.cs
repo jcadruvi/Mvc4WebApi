@@ -37,7 +37,7 @@ namespace Mvc4.WebApi.Controllers
                     select s).First();
         }
 
-        public IEnumerable<KeyValuePair<string, string>> GetOrgLevels()
+        public IEnumerable<KeyValuePair<string, string>> GetDistricts()
         {
             ICollection<KeyValuePair<string, string>> response = new Collection<KeyValuePair<string, string>>();
 
@@ -66,11 +66,11 @@ namespace Mvc4.WebApi.Controllers
             return _storeService.GetStores();
         }
 
-        public IEnumerable<KeyValuePair<string, string>> GetSubOrgLevels([ModelBinder] SubOrgLevel request)
+        public IEnumerable<KeyValuePair<string, string>> GetTerritorys([ModelBinder] Territory request)
         {
             ICollection<KeyValuePair<string, string>> response = new Collection<KeyValuePair<string, string>>();
 
-            switch (request.OrgLevelId)
+            switch (request.DistrictId)
             {
                 case 1:
                     response.Add(new KeyValuePair<string, string>("1", "San Fransisco"));
