@@ -30,10 +30,10 @@ namespace Mvc4.WebApi.Controllers
             }
         }
 
-        public Store GetStore([ModelBinder] Store store)
+        public Store GetStore(int id)
         {
             return (from s in _storeService.GetStores()
-                    where s.Id == store.Id
+                    where s.Id == id
                     select s).First();
         }
 

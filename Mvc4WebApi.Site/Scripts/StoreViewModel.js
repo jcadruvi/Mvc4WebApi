@@ -73,7 +73,7 @@
                 }
             },
             type: 'GET',
-            url: 'api/StoreApi/GetStore'
+            url: 'api/StoreApi'
         });
     };
 
