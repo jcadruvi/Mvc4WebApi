@@ -79,27 +79,37 @@ public Store GetStore(int id)
 
 With the Web API configuration I have sent up I can either use parameters or the action to determine which Web API method should be called. If Web API can not figure out which action should be called an error is thrown. In this case all that you need to do is use the correct action.
 
+Once a store detail is displayed the user can save or delete the store. The save and delete are done by Web API actions. When the user saves a Store the Id, Name, Number, City and State are required. This validation is done on the client and server. In MVC this can easily be done by Data Annotations but how is this done in Web API? Data annotations also work in Web API so client and server validation are also easy to do in Web API. [Now go over the model state example with web api.]
 
-Figure out how I add in the ninject issue.
+When the user deletes a Store the delete method of the StoreApi controller is called. The following is the definition:
 
-Talk about the following web api things:
-Add in if the model state is not valid.
-How to call an action or a parameter.
-derive from api controller 
-ninject
-Model binding
-Data annotations.
-	Do the model state example for the post.
+	[HttpDelete]
+	public void Delete([ModelBinder] Store store)
+	{
+		if (store.Id.HasValue)
+			_storeService.DeleteStore(store.Id.Value);
+		}
+	}
+	
+The AJAX call for the Delete method contains the id value that is used by the method in the URL. If you compare the Delete method to the GetStore method notice that the Delete method has [ModelBinder]. By default, Web API uses the following rules to bind parameters:
+
+	1) If the parameter is a simple type, Web API tries to get the value from the URI.
+	2) For complex types, Web API tries to read the value from the message body, using a media-type formatter.
+	
+In the case of the Delete method a complex type of Store is used. This means that Web API will try to get the value from the body using media-type formatter. In our case the value is in the URI and want Web API to use model binding. Adding the [ModelBinder] attribute to the parameter of the Delete action tells Web API that it should use a model binder and not a media-type formatter. There are two other approaches that would work for the delete method. The first apprach is to use the [FromUri] attribute like the following:
+	
+	public void Delete([FromUri] Store store)
+	
+Adding the [FromUri] attribute tells Web API to use the URI and not the body for the parameter. The second approach is to use a simply type like the following:
+
+	public void Delete(int id)
+	
+Using a simple type will mean Web API will use the URI to get the parameter which is where the value of id is located.
 
 
-Need to finish the filter of store search.
-Fix that territory is not displayed correctly.
 
- 
- Calls:
-	Select stores
-	Select store
-	Select dropdown
-	save store
-	delete store
+
+
+
+
 	
