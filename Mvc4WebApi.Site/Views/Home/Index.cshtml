@@ -86,12 +86,11 @@
 
 <script type="text/javascript">
     (function () {
-        var storeViewModel = new StoreViewModel();
-        storeViewModel.setObservables();
+        var viewModel = storeViewModel();
         $('#storesForm').ajaxForm({
             dataType: 'json',
             iframe: false,
-            success: storeViewModel.onStoreSuccess,
+            success: viewModel.onStoreSuccess,
             type: 'POST'
 
         });
@@ -120,7 +119,7 @@
             filter: "contains",
             suggest: true
         });
-        storeViewModel.districtCombo = $('#districtId').data('kendoComboBox');
+        viewModel.districtCombo = $('#districtId').data('kendoComboBox');
         $('#retailer').kendoComboBox({
             dataTextField: 'Value',
             dataValueField: 'Key',
@@ -141,11 +140,11 @@
             filter: "contains",
             suggest: true
         });
-        storeViewModel.retailerIdCombo = $('#retailer').data('kendoComboBox');
+        viewModel.retailerIdCombo = $('#retailer').data('kendoComboBox');
         $("#storeGrid").kendoGrid({
             autoBind: true,
             change: function() {
-                storeViewModel.onStoreGridChanged();
+                viewModel.onStoreGridChanged();
             },
             filterable: false,
             groupable: false,
@@ -225,7 +224,7 @@
                     width: "120px"
                 }]
         });
-        storeViewModel.storeGridData = $('#storeGrid').data('kendoGrid');
+        viewModel.storeGridData = $('#storeGrid').data('kendoGrid');
         searchRow = $('<tr>' +
                   '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" style="width:100%;" /></span></td>' +
                   '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" style="width:100%;" /></span></td>' +
@@ -236,7 +235,8 @@
                   '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchDistrict" style="width:100%;" /></td>' +
                   '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchTerritory" style="width:100%;" /></td>' +
                   '</tr>');
-        storeViewModel.storeGridData.thead.append(searchRow);
+        viewModel.storeGridData.thead.append(searchRow);
+        ko.applyBindings(viewModel);
         $('#territoryId').kendoComboBox({
             autoBind: false,
             cascadeFrom: "districtId",

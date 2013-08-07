@@ -1,15 +1,15 @@
-﻿function StoreViewModel() {
+﻿function storeViewModel() {
 
-    var self = this;
+    var self = {};
 
-    self.city = null;
-    self.id = null;
-    self.name = null;
-    self.number = null;
+    self.city = ko.observable();
+    self.id = ko.observable();
+    self.name = ko.observable();
+    self.number = ko.observable();
     self.districtCombo = null;
     self.retailerIdCombo = null;
-    self.showDetail = null;
-    self.state = null;
+    self.showDetail = ko.observable();
+    self.state =  ko.observable();
     self.storeGridData = null;
     self.territoryCombo = null;
 
@@ -82,12 +82,9 @@
     };
 
     self.setObservables = function() {
-        self.city = ko.observable();
-        self.id = ko.observable();
-        self.name = ko.observable();
-        self.number = ko.observable();
-        self.showDetail = ko.observable();
-        self.state = ko.observable();
-        ko.applyBindings(self);
+        
+        
     };
+
+    return self;
 }
