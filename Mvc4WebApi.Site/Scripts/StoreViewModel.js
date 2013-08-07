@@ -19,7 +19,9 @@
     self.storeGridData = null;
     self.territoryCombo = null;
 
-    //var filter
+    var filterStores = function () {
+
+    };
 
     var getSelectedStoreId = function () {
         var dataItem;
