@@ -3,15 +3,23 @@
     var self = {};
 
     self.city = ko.observable();
+    self.citySearch = ko.observable();
     self.id = ko.observable();
+    self.idSearch = ko.observable();
     self.name = ko.observable();
+    self.nameSearch = ko.observable();
     self.number = ko.observable();
+    self.numberSearch = ko.observable();
     self.districtCombo = null;
     self.retailerIdCombo = null;
+    self.retailerNameSearch = ko.observable();
     self.showDetail = ko.observable();
-    self.state =  ko.observable();
+    self.state = ko.observable();
+    self.stateSearch = ko.observable();
     self.storeGridData = null;
     self.territoryCombo = null;
+
+    //var filter
 
     var getSelectedStoreId = function () {
         var dataItem;

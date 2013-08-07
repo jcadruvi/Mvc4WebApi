@@ -226,12 +226,12 @@
         });
         viewModel.storeGridData = $('#storeGrid').data('kendoGrid');
         searchRow = $('<tr>' +
-                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" style="width:100%;" /></span></td>' +
-                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" style="width:100%;" /></span></td>' +
-                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" style="width:100%;" /></span></td>' +
-                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" style="width:100%;" /></span></td>' +
-                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" style="width:100%;" /></span></td>' +
-                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" style="width:100%;" /></span></td>' +
+                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" data-bind="value: retailerNameSearch" style="width:100%;" /></span></td>' +
+                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" data-bind="value: idSearch" style="width:100%;" /></span></td>' +
+                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" data-bind="value: nameSearch" style="width:100%;" /></span></td>' +
+                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" data-bind="value: numberSearch" style="width:100%;" /></span></td>' +
+                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" data-bind="value: citySearch" style="width:100%;" /></span></td>' +
+                  '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" data-bind="value: stateSearch"   style="width:100%;" /></span></td>' +
                   '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchDistrict" style="width:100%;" /></td>' +
                   '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchTerritory" style="width:100%;" /></td>' +
                   '</tr>');
