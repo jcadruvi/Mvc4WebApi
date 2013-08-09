@@ -4,23 +4,67 @@
 
     self.city = ko.observable();
     self.citySearch = ko.observable();
+    self.citySearch.subscribe(function () {
+        filterStores();
+    });
     self.id = ko.observable();
     self.idSearch = ko.observable();
+    self.idSearch.subscribe(function () {
+        filterStores();
+    });
     self.name = ko.observable();
     self.nameSearch = ko.observable();
+    self.nameSearch.subscribe(function () {
+        filterStores();
+    });
     self.number = ko.observable();
     self.numberSearch = ko.observable();
+    self.numberSearch.subscribe(function () {
+        filterStores();
+    });
     self.districtCombo = null;
     self.retailerIdCombo = null;
     self.retailerNameSearch = ko.observable();
+    self.retailerNameSearch.subscribe(function () {
+        filterStores();
+    });
     self.showDetail = ko.observable();
     self.state = ko.observable();
     self.stateSearch = ko.observable();
+    self.stateSearch.subscribe(function () {
+        filterStores();
+    });
     self.storeGridData = null;
     self.territoryCombo = null;
 
     var filterStores = function () {
-
+        var filter = new Array();
+        var i = 0;
+        if (self.retailerNameSearch() && self.retailerNameSearch().length > 0) {
+            filter[i] = { field: "RetailerName", operator: "startswith", value: self.retailerNameSearch() };
+            i++;
+        }
+        if (self.citySearch() && self.citySearch().length > 0) {
+            filter[i] = { field: "City", operator: "startswith", value: self.citySearch() };
+            i++;
+        }
+        if (self.idSearch() && self.idSearch().length > 0) {
+            filter[i] = { field: "id", operator: "eq", value: self.idSearch() };
+            i++;
+        }
+        if (self.nameSearch() && self.nameSearch().length > 0) {
+            filter[i] = { field: "Name", operator: "startswith", value: self.nameSearch() };
+            i++;
+        }
+        if (self.numberSearch() && self.numberSearch().length > 0) {
+            filter[i] = { field: "Number", operator: "startswith", value: self.numberSearch() };
+            i++;
+        }
+        if (self.stateSearch() && self.stateSearch().length > 0) {
+            filter[i] = { field: "State", operator: "startswith", value: self.stateSearch() };
+            i++;
+        }
+        self.storeGridData.dataSource.filter(filter);
     };
 
     var getSelectedStoreId = function () {
