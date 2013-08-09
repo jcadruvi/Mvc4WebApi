@@ -42,7 +42,7 @@ namespace Mvc4.WebApi.Controllers
             ICollection<KeyValuePair<string, string>> response = new Collection<KeyValuePair<string, string>>();
 
             response.Add(new KeyValuePair<string, string>("1", "Bay Area"));
-            response.Add(new KeyValuePair<string, string>("2", "Los Angelos"));
+            response.Add(new KeyValuePair<string, string>("2", "Nevada"));
             response.Add(new KeyValuePair<string, string>("3", "San Diego"));
 
             return response;
@@ -78,9 +78,8 @@ namespace Mvc4.WebApi.Controllers
                     response.Add(new KeyValuePair<string, string>("3", "Oakland"));
                     break;
                 case 2:
-                    response.Add(new KeyValuePair<string, string>("4", "Los Angelos"));
-                    response.Add(new KeyValuePair<string, string>("5", "Glendale"));
-                    response.Add(new KeyValuePair<string, string>("6", "Simi Valley"));
+                    response.Add(new KeyValuePair<string, string>("4", "Las Vegas"));
+                    response.Add(new KeyValuePair<string, string>("5", "Reno"));
                     break;
                 case 3:
                     response.Add(new KeyValuePair<string, string>("7", "San Diego"));

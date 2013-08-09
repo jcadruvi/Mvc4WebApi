@@ -22,16 +22,16 @@ namespace Mvc4.WebApi.Repository
             _stores.Add(new Store
             {
                 RetailerId = 1,
-                RetailerName = "Best Buy",
+                RetailerName = "Frys",
                 Id = 1,
                 Name = "Store 1",
                 Number = "1",
-                City = "San Jose",
-                State = "CA",
-                DistrictId = 1,
-                DistrictName = "1 - Bay Area",
-                TerritoryId = 2,
-                TerritoryName = "2 - San Jose"
+                City = "Las Vegas",
+                State = "NV",
+                DistrictId = 2,
+                DistrictName = "Nevada",
+                TerritoryId = 4,
+                TerritoryName = "Las Vegas"
             });
             _stores.Add(new Store
             {
@@ -43,9 +43,9 @@ namespace Mvc4.WebApi.Repository
                 City = "San Jose",
                 State = "CA",
                 DistrictId = 1,
-                DistrictName = "1 - Bay Area",
+                DistrictName = "Bay Area",
                 TerritoryId = 2,
-                TerritoryName = "2 - San Jose"
+                TerritoryName = "San Jose"
             });
             _stores.Add(new Store
             {
@@ -57,9 +57,9 @@ namespace Mvc4.WebApi.Repository
                 City = "San Jose",
                 State = "CA",
                 DistrictId = 1,
-                DistrictName = "1 - Bay Area",
+                DistrictName = "Bay Area",
                 TerritoryId = 2,
-                TerritoryName = "2 - San Jose"
+                TerritoryName = "San Jose"
             });
         }
         public void DeleteStore(int id)

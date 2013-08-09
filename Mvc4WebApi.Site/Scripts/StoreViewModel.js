@@ -5,39 +5,39 @@
     self.city = ko.observable();
     self.citySearch = ko.observable();
     self.citySearch.subscribe(function () {
-        filterStores();
+        self.filterStores();
     });
     self.id = ko.observable();
     self.idSearch = ko.observable();
     self.idSearch.subscribe(function () {
-        filterStores();
+        self.filterStores();
     });
     self.name = ko.observable();
     self.nameSearch = ko.observable();
     self.nameSearch.subscribe(function () {
-        filterStores();
+        self.filterStores();
     });
     self.number = ko.observable();
     self.numberSearch = ko.observable();
     self.numberSearch.subscribe(function () {
-        filterStores();
+        self.filterStores();
     });
     self.districtCombo = null;
     self.retailerIdCombo = null;
     self.retailerNameSearch = ko.observable();
     self.retailerNameSearch.subscribe(function () {
-        filterStores();
+        self.filterStores();
     });
     self.showDetail = ko.observable();
     self.state = ko.observable();
     self.stateSearch = ko.observable();
     self.stateSearch.subscribe(function () {
-        filterStores();
+        self.filterStores();
     });
     self.storeGridData = null;
     self.territoryCombo = null;
 
-    var filterStores = function () {
+    self.filterStores = function () {
         var filter = new Array();
         var i = 0;
         if (self.retailerNameSearch() && self.retailerNameSearch().length > 0) {
@@ -46,6 +46,10 @@
         }
         if (self.citySearch() && self.citySearch().length > 0) {
             filter[i] = { field: "City", operator: "startswith", value: self.citySearch() };
+            i++;
+        }
+        if (self.districtCombo.value() && self.districtCombo.value().length > 0) {
+            filter[i] = { field: "District", operator: "eq", value: self.districtCombo.value() };
             i++;
         }
         if (self.idSearch() && self.idSearch().length > 0) {
@@ -62,6 +66,10 @@
         }
         if (self.stateSearch() && self.stateSearch().length > 0) {
             filter[i] = { field: "State", operator: "startswith", value: self.stateSearch() };
+            i++;
+        }
+        if (self.territoryCombo.value() && self.territoryCombo.value().length > 0) {
+            filter[i] = { field: "Territory", operator: "eq", value: self.territoryCombo.value() };
             i++;
         }
         self.storeGridData.dataSource.filter(filter);

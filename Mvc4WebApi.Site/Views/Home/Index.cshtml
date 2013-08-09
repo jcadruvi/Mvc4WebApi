@@ -96,9 +96,8 @@
         });
         $('#districtId').kendoComboBox({
             change: function () {
-                var territoryComboBoxData = $('#territoryId').data('kendoComboBox');
-                territoryComboBoxData.value(null);
-                territoryComboBoxData.dataSource.read();
+                viewModel.territoryCombo.value(null);
+                viewModel.territoryCombo.dataSource.read();
             },
             dataTextField: 'Value',
             dataValueField: 'Key',
@@ -264,11 +263,12 @@
             filter: "contains",
             suggest: true
         });
+        viewModel.territoryCombo = $('#territoryId').data('kendoComboBox');
         $('#searchDistrict').kendoComboBox({
             change: function () {
-                var territoryComboBoxData = $('#searchTerritory').data('kendoComboBox');
-                territoryComboBoxData.value(null);
-                territoryComboBoxData.dataSource.read();
+                viewModel.territoryCombo.value(null);
+                viewModel.territoryCombo.dataSource.read();
+                viewModel.filterStores();
             },
             dataTextField: 'Value',
             dataValueField: 'Key',
@@ -292,6 +292,9 @@
         $('#searchTerritory').kendoComboBox({
             autoBind: false,
             cascadeFrom: "searchDistrict",
+            change: function() {
+                viewModel.filterStores();
+            },
             dataTextField: "Value",
             dataValueField: "Key",
             dataSource: {
