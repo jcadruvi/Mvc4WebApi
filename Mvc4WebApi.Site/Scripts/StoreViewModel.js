@@ -7,6 +7,21 @@
     self.citySearch.subscribe(function () {
         self.filterStores();
     });
+    self.districtData = ko.observableArray();
+    $.ajax({
+        url: "api/StoreApi/GetDistricts",
+        success: function (result) {
+            self.districtData(result);
+        },
+        type: "GET"
+    });
+    self.district = ko.observable();
+    self.districtOptions = {
+        change: function () {
+            self.territoryCombo.value(null);
+            self.territoryCombo.dataSource.read();
+        }
+    };
     self.id = ko.observable();
     self.idSearch = ko.observable();
     self.idSearch.subscribe(function () {

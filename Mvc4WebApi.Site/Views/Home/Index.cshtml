@@ -65,7 +65,7 @@
             <div class="storeLine">
                 <span class="storeLabels">District</span>
                 <span>
-                    @Html.TextBoxFor(model => model.DistrictId, new { @id = "districtId" })
+                    @Html.TextBoxFor(model => model.DistrictId, new { data_bind="kendoComboBox: { change: districtOptions.change, data: districtData, dataTextField: 'Value', dataValueField: 'Key', value: district, widget: districtCombo }"})
                 </span>
             </div>
             <div class="storeLine">@Html.ValidationMessageFor(model => model.DistrictId)</div>
@@ -95,31 +95,20 @@
             type: 'POST'
 
         });
-        $('#districtId').kendoComboBox({
-            change: function () {
-                viewModel.territoryCombo.value(null);
-                viewModel.territoryCombo.dataSource.read();
-            },
+        /*$('#districtId').kendoComboBox({
+            ,
             dataTextField: 'Value',
             dataValueField: 'Key',
             dataSource: {
                 type: "json",
                 transport: {
                     read: function (options) {
-                        $.ajax({
-                            url: "api/StoreApi/GetDistricts",
-                            success: function (result) {
-                                options.success(result);
-                            },
-                            type: "GET"
-                        });
+                        
                     }
                 }
-            },
-            filter: "contains",
-            suggest: true
+            }
         });
-        viewModel.districtCombo = $('#districtId').data('kendoComboBox');
+        viewModel.districtCombo = $('#districtId').data('kendoComboBox');*/
         $('#retailer').kendoComboBox({
             dataTextField: 'Value',
             dataValueField: 'Key',
@@ -136,9 +125,7 @@
                         });
                     }
                 }
-            },
-            filter: "contains",
-            suggest: true
+            }
         });
         viewModel.retailerIdCombo = $('#retailer').data('kendoComboBox');
         $("#storeGrid").kendoGrid({
@@ -248,7 +235,7 @@
                 transport: {
                     read: function (options) {
                         var postData = {};
-                        postData.DistrictId = $('#districtId').data('kendoComboBox').value();
+                        postData.DistrictId = viewModel.district();
                         $.ajax({
                             data: postData,
                             dataType: 'json',
@@ -260,9 +247,7 @@
                         });
                     }
                 }
-            },
-            filter: "contains",
-            suggest: true
+            }
         });
         viewModel.territoryCombo = $('#territoryId').data('kendoComboBox');
         $('#searchDistrict').kendoComboBox({
