@@ -65,7 +65,7 @@
             <div class="storeLine">
                 <span class="storeLabels">District</span>
                 <span>
-                    @Html.TextBoxFor(model => model.DistrictId, new { data_bind="kendoComboBox: { change: districtOptions.change, data: districtData, dataTextField: 'Value', dataValueField: 'Key', value: district, widget: districtCombo }"})
+                    @Html.TextBoxFor(model => model.DistrictId, new { data_bind="kendoComboBox: { change: districtOptions.change, data: districtData, dataTextField: 'Value', dataValueField: 'Key', value: district }"})
                 </span>
             </div>
             <div class="storeLine">@Html.ValidationMessageFor(model => model.DistrictId)</div>
@@ -95,20 +95,6 @@
             type: 'POST'
 
         });
-        /*$('#districtId').kendoComboBox({
-            ,
-            dataTextField: 'Value',
-            dataValueField: 'Key',
-            dataSource: {
-                type: "json",
-                transport: {
-                    read: function (options) {
-                        
-                    }
-                }
-            }
-        });
-        viewModel.districtCombo = $('#districtId').data('kendoComboBox');*/
         $('#retailer').kendoComboBox({
             dataTextField: 'Value',
             dataValueField: 'Key',

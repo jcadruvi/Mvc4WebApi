@@ -37,7 +37,6 @@
     self.numberSearch.subscribe(function () {
         self.filterStores();
     });
-    self.districtCombo = null;
     self.retailerIdCombo = null;
     self.retailerNameSearch = ko.observable();
     self.retailerNameSearch.subscribe(function () {
@@ -63,8 +62,8 @@
             filter[i] = { field: "City", operator: "startswith", value: self.citySearch() };
             i++;
         }
-        if (self.districtCombo.value() && self.districtCombo.value().length > 0) {
-            filter[i] = { field: "District", operator: "eq", value: self.districtCombo.value() };
+        if (self.district() && self.district().length > 0) {
+            filter[i] = { field: "District", operator: "eq", value: self.district() };
             i++;
         }
         if (self.idSearch() && self.idSearch().length > 0) {
@@ -116,7 +115,7 @@
                 self.name("");
                 self.number("");
                 self.state("");
-                self.districtCombo.value(null);
+                self.district(null);
                 self.territoryCombo.value(null);
             },
             type: 'DELETE',
@@ -139,9 +138,7 @@
                 self.name(result.Name);
                 self.number(result.Number);
                 self.state(result.State);
-                if (self.districtCombo) {
-                    self.districtCombo.value(result.DistrictId);
-                }
+                self.district(result.DistrictId);
                 if (self.retailerIdCombo) {
                     self.retailerIdCombo.value(result.RetailerId);
                 }
