@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Mvc4.WebApi.Models
 {
-    public class StoreRequest
+    public class StoreEditRequest
     {
         public int? RetailerId { get; set; }
         public int Id { get; set; }

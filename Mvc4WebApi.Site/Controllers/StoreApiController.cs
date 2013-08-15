@@ -97,7 +97,7 @@ namespace Mvc4.WebApi.Controllers
         }
 
         [HttpPost]
-        public object Post(StoreRequest store)
+        public object Post(StoreEditRequest store)
         {
             Store updateStore = Mapper.Map<Store>(store);
             _storeService.UpdateStore(updateStore);

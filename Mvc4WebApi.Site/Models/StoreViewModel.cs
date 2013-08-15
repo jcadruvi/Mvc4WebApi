@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Mvc4.WebApi.Models
 {
-    public class StoreViewModel : StoreRequest
+    public class StoreViewModel : StoreEditRequest
     {
     }
 }
