@@ -9,6 +9,7 @@ using System.Web.Http.ModelBinding;
 using Mvc4.WebApi.Service;
 using Mvc4.WebApi.Model;
 using Mvc4.WebApi.Models;
+using AutoMapper;
 
 namespace Mvc4.WebApi.Controllers
 {
@@ -93,7 +94,8 @@ namespace Mvc4.WebApi.Controllers
         [HttpPost]
         public object Post(StoreRequest store)
         {
-            //_storeService.UpdateStore(store);
+            Store updateStore = Mapper.Map<Store>(store);
+            _storeService.UpdateStore(updateStore);
             return null;
         }
     }
