@@ -14,6 +14,10 @@ namespace Mvc4.WebApi.App_Start
         {
             Mapper.CreateMap<StoreEditRequest, Store>()
                 .IgnoreAllNonExisting();
+            Mapper.CreateMap<Store, StoreResponse>()
+                .IgnoreAllNonExisting();
+            Mapper.CreateMap<Store, StoreListResponse>()
+                .IgnoreAllNonExisting();
 
             Mapper.AssertConfigurationIsValid();
         }

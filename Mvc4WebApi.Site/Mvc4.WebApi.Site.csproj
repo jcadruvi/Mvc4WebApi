@@ -149,6 +149,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\StoreEditRequest.cs" />
+    <Compile Include="Models\StoreListResponse.cs" />
+    <Compile Include="Models\StoreResponse.cs" />
     <Compile Include="Models\StoreViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

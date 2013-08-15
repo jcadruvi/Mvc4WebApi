@@ -31,11 +31,12 @@ namespace Mvc4.WebApi.Controllers
             }
         }
 
-        public Store GetStore(int id)
+        public StoreResponse GetStore(int id)
         {
-            return (from s in _storeService.GetStores()
-                    where s.Id == id
-                    select s).First();
+            Store store = (from s in _storeService.GetStores()
+                           where s.Id == id
+                           select s).First();
+            return Mapper.Map<StoreResponse>(store);
         }
 
         public IEnumerable<KeyValuePair<string, string>> GetDistricts()
@@ -62,9 +63,9 @@ namespace Mvc4.WebApi.Controllers
             return response;
         }
 
-        public IEnumerable<Store> GetStores()
+        public IEnumerable<StoreListResponse> GetStores()
         {
-            return _storeService.GetStores();
+            return Mapper.Map<IEnumerable<StoreListResponse>>(_storeService.GetStores());
         }
 
         public IEnumerable<KeyValuePair<string, string>> GetTerritorys(int? districtId)
