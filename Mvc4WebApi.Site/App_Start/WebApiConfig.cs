@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mvc4.WebApi.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -20,6 +21,8 @@ namespace Mvc4.WebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Filters.Add(new ValidateModelAttribute());
         }
     }
 }
