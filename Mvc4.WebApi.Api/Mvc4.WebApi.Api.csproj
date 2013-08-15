@@ -46,7 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\DistrictApiController.cs" />
+    <Compile Include="Controllers\RetailerApiController.cs" />
     <Compile Include="Controllers\StoreApiController.cs" />
+    <Compile Include="Controllers\TerritoryApiController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\StoreEditRequest.cs" />
     <Compile Include="Response\StoreListResponse.cs" />

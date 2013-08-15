@@ -1,24 +1,24 @@
 Mvc4WebApi
 ==========
 
-This is a project that I used to learn more about Web API. This project intially shows a list of stores. The user can filter the stores by entering values in the search fields on the header of the grid. The filter is triggered by the field losing focus or pressing enter. If the user clicks on row on the grid the detail section will be displayed. The detail section will allow the user to save or delete the store. All saves or deletes are made to a singleton repository and they will only persist while the user is on the page.
+This is a project that I used to learn more about Web API. This project initially shows a list of stores. The user can filter the stores by entering values in the search fields on the header of the grid. The filter is triggered by the field losing focus or pressing enter. If the user clicks on a row in the grid the detail section will be displayed. The detail section will allow the user to save or delete the store. All saves or deletes are made to a singleton repository and they will only persist while the user is on the page.
 
-This project uses MVC for the view and Web API for the ajax calls. The view contains the main and detail html. The detail is hidden initialy and knockout is used to show the detail section when a grid row is selected. When the store page is first loaded I make the following AJAX calls to get the data for the page:
+This project uses MVC for the view and Web API for the AJAX calls. The view contains the main and detail html. The detail is hidden initially and Knockout is used to show the detail section when a grid row is selected. When the store page is first loaded I make the following AJAX calls to get the data for the page:
 
-	1) GetStores which retieves the stores for the store grid.
-	2) GetRetailers which retrieves the retailers for the retailer dropdowns.
-	3) GetDistricts which retrieves the districts for the districts dropdowns.
+	1) Stores which retrieves the stores for the store grid.
+	2) Retailers which retrieves the retailers for the retailer drop downs.
+	3) Districts which retrieves the districts for the districts drop downs.
 	
 AJAX calls to a Web API controller differ from ones made to a MVC controller by the URL. The following is an example of an AJAX call:
 
 	$.ajax({
-		url: "api/StoreApi/GetRetailers",
+		url: "api/RetailerApi/Retailers",
 		success: function (result) {
 		},
 		type: "GET"
 	});
 
-The first part of the url "api" is used for routing to know it is a Web API call. The second part "StoreApi" is the name of the controller and the third part "GetRetailers" is the name of the action. When a Web API project is created using Visual Studio the following route configuration is used:
+The first part of the url "api" is used for routing to know it is a Web API call. The second part "RetailerApi" is the name of the controller and the third part "Retailers" is the name of the action. When a Web API project is created using Visual Studio the following route configuration is used:
 
 	config.Routes.MapHttpRoute(
 		name: "DefaultApi",
@@ -26,7 +26,7 @@ The first part of the url "api" is used for routing to know it is a Web API call
 		defaults: new { id = RouteParameter.Optional }
 	);
 
-Notice the first part of the route template is "'api" which matches the first part of AJAX url. Having "api" as the first part of a route will let router know it should call a Web API Controller. This default route configuration uses the controller, method and parameters to determine which action should be called. My StoreApi controller has several actions that don't have any parameters so I needed to add another configuration that would use the controller, method and action to determine which action should be called. The following is the action configuration:
+Notice the first part of the route template is "api" which matches the first part of AJAX url. Having "api" as the first part of a route will let the router know it should call a Web API Controller. The Web Api default route configuration uses the controller, method and parameters to determine which action should be called. You can also have a route configuration that uses the action to determine which method should be called. This is useful in cases where multiple actions have the same HTTP Verb and parameters. In this case Web API will need more information to determine which method should be called. The action would resolve this ambiguity. The following is the action configuration:
 
 	config.Routes.MapHttpRoute(
 		name: "ActionApi",
@@ -36,9 +36,9 @@ Notice the first part of the route template is "'api" which matches the first pa
 
 Notice that "{action}" is between "controller" and "{id}". The WebApiConfig file has all of the Web API route configuration code.
 
-Now lets look at how the server side actions for Web API differs from MVC actions for AJAX calls. The first difference is that the StoreApiController inherits from ApiController. This lets ASP.NET know that the controller is a Web API controller. The second difference is in the action method. The following is the GetRetailers action method:
+Now lets look at how the server side actions for Web API differs from MVC actions for AJAX calls. The first difference is that the RetailerApiController inherits from ApiController. This lets ASP.NET know that the controller is a Web API controller. The second difference is in the action method. The following is the Retailers action method:
 
-	public IEnumerable<KeyValuePair<string, string>> GetRetailers()
+	public IEnumerable<KeyValuePair<string, string>> Retailers()
 	{
 		ICollection<KeyValuePair<string, string>> response = new Collection<KeyValuePair<string, string>>();
 		response.Add(new KeyValuePair<string, string>("1", "Best Buy"));
@@ -65,12 +65,12 @@ After the initial data is retrieved the next API call is made when the user sele
 		
         },
         type: 'GET',
-        url: 'api/StoreApi'
+        url: 'api/StoreApi/'
     });
 	
-Notice the AJAX url only has the controller. Web API will use the HTTP verb "GET" and the data being sent to determine which action method to call. In the StoreApi controller there is one HttpGet method that has a parameter of id called GetStore. The following is the GetStore method:
+Notice the AJAX url only has the controller. Web API will use the HTTP verb "GET" and the data being sent to determine which action method to call. In the StoreApi controller there is one HttpGet method that has a parameter of id called Store. The following is the Store method:
 
-public Store GetStore(int id)
+public Store Store(int id)
 {
     return (from s in _storeService.GetStores()
             where s.Id == id

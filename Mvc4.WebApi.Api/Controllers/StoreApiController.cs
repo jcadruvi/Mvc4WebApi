@@ -32,7 +32,8 @@ namespace Mvc4.WebApi.Api.Controllers
             }
         }
 
-        public StoreResponse GetStore(int id)
+        [HttpGet]
+        public StoreResponse Store(int id)
         {
             Store store = (from s in _storeService.GetStores()
                            where s.Id == id
@@ -40,70 +41,16 @@ namespace Mvc4.WebApi.Api.Controllers
             return Mapper.Map<StoreResponse>(store);
         }
 
-        public IEnumerable<KeyValuePair<string, string>> GetDistricts()
-        {
-            ICollection<KeyValuePair<string, string>> response = new Collection<KeyValuePair<string, string>>();
-
-            response.Add(new KeyValuePair<string, string>("1", "Bay Area"));
-            response.Add(new KeyValuePair<string, string>("2", "Nevada"));
-            response.Add(new KeyValuePair<string, string>("3", "San Diego"));
-
-            return response;
-        }
-
-        public IEnumerable<KeyValuePair<string, string>> GetRetailers()
-        {
-            ICollection<KeyValuePair<string, string>> response = new Collection<KeyValuePair<string, string>>();
-            response.Add(new KeyValuePair<string, string>("1", "Best Buy"));
-            response.Add(new KeyValuePair<string, string>("2", "Frys"));
-            response.Add(new KeyValuePair<string, string>("3", "Wal Mart"));
-            response.Add(new KeyValuePair<string, string>("4", "Target"));
-            response.Add(new KeyValuePair<string, string>("5", "Safeway"));
-            response.Add(new KeyValuePair<string, string>("6", "Knob Hill"));
-            response.Add(new KeyValuePair<string, string>("7", "Luckys"));
-            return response;
-        }
-
-        public IEnumerable<StoreListResponse> GetStores()
+        [HttpGet]
+        public IEnumerable<StoreListResponse> Stores()
         {
             return Mapper.Map<IEnumerable<StoreListResponse>>(_storeService.GetStores());
         }
 
-        public IEnumerable<KeyValuePair<string, string>> GetTerritorys(int? districtId)
-        {
-            ICollection<KeyValuePair<string, string>> response = new Collection<KeyValuePair<string, string>>();
-            if (!districtId.HasValue)
-            {
-                return null;
-            }
-
-            switch (districtId)
-            {
-                case 1:
-                    response.Add(new KeyValuePair<string, string>("1", "San Fransisco"));
-                    response.Add(new KeyValuePair<string, string>("2", "San Jose"));
-                    response.Add(new KeyValuePair<string, string>("3", "Oakland"));
-                    break;
-                case 2:
-                    response.Add(new KeyValuePair<string, string>("4", "Las Vegas"));
-                    response.Add(new KeyValuePair<string, string>("5", "Reno"));
-                    break;
-                case 3:
-                    response.Add(new KeyValuePair<string, string>("7", "San Diego"));
-                    response.Add(new KeyValuePair<string, string>("8", "Oceanside"));
-                    response.Add(new KeyValuePair<string, string>("9", "Escondido"));
-                    break;
-            }
-
-            return response;
-        }
-
         [HttpPost]
-        public object Post(StoreEditRequest store)
+        public void Post(StoreEditRequest store)
         {
-            Store updateStore = Mapper.Map<Store>(store);
-            _storeService.UpdateStore(updateStore);
-            return null;
+            _storeService.UpdateStore(Mapper.Map<Store>(store));
         }
     }
 }

@@ -9,7 +9,7 @@
     });
     self.districtData = ko.observableArray();
     $.ajax({
-        url: "api/StoreApi/GetDistricts",
+        url: "api/DistrictApi/Districts",
         success: function (result) {
             self.districtData(result);
         },
@@ -149,7 +149,7 @@
                 self.sales(result.Sales);
             },
             type: 'GET',
-            url: 'api/StoreApi'
+            url: 'api/StoreApi/'
         });
     };
 
