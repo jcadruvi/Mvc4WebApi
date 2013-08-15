@@ -15,5 +15,6 @@ namespace Mvc4.WebApi.Api.Response
         public string State { get; set; }
         public int? DistrictId { get; set; }
         public int? TerritoryId { get; set; }
+        public decimal? Sales { get; set; }
     }
 }

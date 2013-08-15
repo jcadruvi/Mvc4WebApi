@@ -31,7 +31,8 @@ namespace Mvc4.WebApi.Repository
                 DistrictId = 2,
                 DistrictName = "Nevada",
                 TerritoryId = 4,
-                TerritoryName = "Las Vegas"
+                TerritoryName = "Las Vegas",
+                Sales = (decimal)100.00
             });
             _stores.Add(new Store
             {
@@ -45,7 +46,8 @@ namespace Mvc4.WebApi.Repository
                 DistrictId = 1,
                 DistrictName = "Bay Area",
                 TerritoryId = 2,
-                TerritoryName = "San Jose"
+                TerritoryName = "San Jose",
+                Sales = (decimal)200.00
             });
             _stores.Add(new Store
             {
@@ -59,7 +61,8 @@ namespace Mvc4.WebApi.Repository
                 DistrictId = 1,
                 DistrictName = "Bay Area",
                 TerritoryId = 2,
-                TerritoryName = "San Jose"
+                TerritoryName = "San Jose",
+                Sales = (decimal)300.00
             });
         }
         public void DeleteStore(int id)

@@ -42,6 +42,7 @@
     self.retailerNameSearch.subscribe(function () {
         self.filterStores();
     });
+    self.sales = ko.observable();
     self.showDetail = ko.observable();
     self.state = ko.observable();
     self.stateSearch = ko.observable();
@@ -145,6 +146,7 @@
                 if (self.territoryCombo) {
                     self.territoryCombo.value(result.TerritoryId);
                 }
+                self.sales(result.Sales);
             },
             type: 'GET',
             url: 'api/StoreApi'

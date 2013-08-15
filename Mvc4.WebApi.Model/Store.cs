@@ -19,5 +19,6 @@ namespace Mvc4.WebApi.Model
         public string DistrictName { get; set; }
         public int? TerritoryId { get; set; }
         public string TerritoryName { get; set; }
+        public decimal? Sales { get; set; }
     }
 }

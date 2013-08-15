@@ -76,6 +76,12 @@
                 </span>
             </div>
             <div class="storeLine">@Html.ValidationMessageFor(model => model.TerritoryId)</div>
+            <div class="storeLine">
+                <span class="storeLabels">Sales</span>
+                <span>
+                    @Html.TextBoxFor(model => model.Sales, new { data_bind = "kendoNumericTextBox: { format: 'c', value: sales }" })
+                </span>
+            </div>
         </div>
     }
 
@@ -293,6 +299,7 @@
         });
         $(document).ready(function () {
             $('section .k-combobox').css('width', '170px');
+            $('section .k-numerictextbox').css('width', '170px');
         });
     })();
     
