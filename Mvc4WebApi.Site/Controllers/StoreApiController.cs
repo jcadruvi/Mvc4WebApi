@@ -67,11 +67,15 @@ namespace Mvc4.WebApi.Controllers
             return _storeService.GetStores();
         }
 
-        public IEnumerable<KeyValuePair<string, string>> GetTerritorys([ModelBinder] Territory request)
+        public IEnumerable<KeyValuePair<string, string>> GetTerritorys(int? districtId)
         {
             ICollection<KeyValuePair<string, string>> response = new Collection<KeyValuePair<string, string>>();
+            if (!districtId.HasValue)
+            {
+                return null;
+            }
 
-            switch (request.DistrictId)
+            switch (districtId)
             {
                 case 1:
                     response.Add(new KeyValuePair<string, string>("1", "San Fransisco"));
@@ -91,6 +95,7 @@ namespace Mvc4.WebApi.Controllers
 
             return response;
         }
+
         [HttpPost]
         public object Post(StoreRequest store)
         {
