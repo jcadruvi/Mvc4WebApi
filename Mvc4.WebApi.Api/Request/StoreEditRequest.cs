@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Mvc4.WebApi.Models
+namespace Mvc4.WebApi.Api.Request
 {
     public class StoreEditRequest
     {

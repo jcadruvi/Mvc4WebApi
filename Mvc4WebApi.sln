@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4.WebApi.Repository", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4.WebApi.Service", "Mvc4.WebApi.Service\Mvc4.WebApi.Service.csproj", "{7C00A3FB-2FB3-4093-83AA-1E6E8CA90C3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4.WebApi.Api", "Mvc4.WebApi.Api\Mvc4.WebApi.Api.csproj", "{9D21931B-B2E8-4D7D-8197-99C7B71D0275}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7C00A3FB-2FB3-4093-83AA-1E6E8CA90C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C00A3FB-2FB3-4093-83AA-1E6E8CA90C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C00A3FB-2FB3-4093-83AA-1E6E8CA90C3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D21931B-B2E8-4D7D-8197-99C7B71D0275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D21931B-B2E8-4D7D-8197-99C7B71D0275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D21931B-B2E8-4D7D-8197-99C7B71D0275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D21931B-B2E8-4D7D-8197-99C7B71D0275}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

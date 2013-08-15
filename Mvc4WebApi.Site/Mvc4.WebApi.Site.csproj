@@ -141,16 +141,12 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\StoreApiController.cs" />
     <Compile Include="App_Start\NinjectDependencyScope.cs" />
     <Compile Include="App_Start\NinjectDependencyResolver.cs" />
     <Compile Include="Filters\ValidateModelAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\StoreEditRequest.cs" />
-    <Compile Include="Models\StoreListResponse.cs" />
-    <Compile Include="Models\StoreResponse.cs" />
     <Compile Include="Models\StoreViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -267,6 +263,10 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mvc4.WebApi.Api\Mvc4.WebApi.Api.csproj">
+      <Project>{9d21931b-b2e8-4d7d-8197-99c7b71d0275}</Project>
+      <Name>Mvc4.WebApi.Api</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mvc4.WebApi.Model\Mvc4.WebApi.Model.csproj">
       <Project>{a9845e05-78a8-40a9-b7d2-831d5a897f9a}</Project>
       <Name>Mvc4.WebApi.Model</Name>

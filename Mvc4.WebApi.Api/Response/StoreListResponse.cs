@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Mvc4.WebApi.Models
+namespace Mvc4.WebApi.Api.Response
 {
     public class StoreListResponse
     {

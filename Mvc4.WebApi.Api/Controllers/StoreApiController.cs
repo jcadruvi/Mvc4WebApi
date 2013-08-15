@@ -8,10 +8,11 @@ using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using Mvc4.WebApi.Service;
 using Mvc4.WebApi.Model;
-using Mvc4.WebApi.Models;
 using AutoMapper;
+using Mvc4.WebApi.Api.Response;
+using Mvc4.WebApi.Api.Request;
 
-namespace Mvc4.WebApi.Controllers
+namespace Mvc4.WebApi.Api.Controllers
 {
     public class StoreApiController : ApiController
     {
