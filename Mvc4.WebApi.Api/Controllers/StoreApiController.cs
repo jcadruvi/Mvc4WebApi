@@ -24,6 +24,9 @@ namespace Mvc4.WebApi.Api.Controllers
         }
 
         [HttpDelete]
+        /// <summary>
+        /// Delete a Store by the id.
+        /// </summary>
         public void Delete([ModelBinder] Store store)
         {
             if (store.Id.HasValue)
@@ -33,6 +36,9 @@ namespace Mvc4.WebApi.Api.Controllers
         }
 
         [HttpGet]
+        /// <summary>
+        /// Gets a single Store by the id.
+        /// </summary>
         public StoreResponse Store(int id)
         {
             Store store = (from s in _storeService.GetStores()
@@ -42,12 +48,18 @@ namespace Mvc4.WebApi.Api.Controllers
         }
 
         [HttpGet]
+        /// <summary>
+        /// Gets all Stores for a list.
+        /// </summary>
         public IEnumerable<StoreListResponse> Stores()
         {
             return Mapper.Map<IEnumerable<StoreListResponse>>(_storeService.GetStores());
         }
 
         [HttpPost]
+        /// <summary>
+        /// Save a Store.
+        /// </summary>
         public void Post(StoreEditRequest store)
         {
             _storeService.UpdateStore(Mapper.Map<Store>(store));

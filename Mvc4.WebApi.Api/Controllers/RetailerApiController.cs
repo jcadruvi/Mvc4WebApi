@@ -10,6 +10,9 @@ namespace Mvc4.WebApi.Api.Controllers
 {
     public class RetailerApiController : ApiController
     {
+        /// <summary>
+        /// Gets the id and description of all Retailers.
+        /// </summary>
         [HttpGet]
         public IEnumerable<KeyValuePair<string, string>> Retailers()
         {

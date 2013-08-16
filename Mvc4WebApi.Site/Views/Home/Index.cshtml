@@ -5,7 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<div>
+    @Html.ActionLink("View API", "Index", "Help", new { area = "" }, null)
+</div>
+<br />
 <div id="storeGrid"></div>
 
 <section data-bind="visible: showDetail" style="display: none">
