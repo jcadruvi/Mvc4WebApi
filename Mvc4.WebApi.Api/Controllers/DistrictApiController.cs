@@ -10,10 +10,10 @@ namespace Mvc4.WebApi.Api.Controllers
 {
     public class DistrictApiController : ApiController
     {
-        [HttpGet]
         /// <summary>
         /// Gets the id and description of all Districts.
         /// </summary>
+        [HttpGet]
         public IEnumerable<KeyValuePair<string, string>> Districts()
         {
             ICollection<KeyValuePair<string, string>> response = new Collection<KeyValuePair<string, string>>();

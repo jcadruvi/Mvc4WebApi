@@ -15,7 +15,7 @@
 
     @{ Html.EnableClientValidation(); }
 
-    @using (Html.BeginForm("StoreApi/Post", "api", FormMethod.Post, new { id = "storesForm" }))
+    @using (Html.BeginForm("StoreApi/Store", "api", FormMethod.Post, new { id = "storesForm" }))
     {
 
         <input class="k-button storeButton" type="submit" value="Save" />
