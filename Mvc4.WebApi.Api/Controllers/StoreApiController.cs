@@ -60,7 +60,7 @@ namespace Mvc4.WebApi.Api.Controllers
         /// <summary>
         /// Save a Store.
         /// </summary>
-        public void Post(StoreEditRequest store)
+        public void Store(StoreEditRequest store)
         {
             _storeService.UpdateStore(Mapper.Map<Store>(store));
         }
