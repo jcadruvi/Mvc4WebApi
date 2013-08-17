@@ -85,6 +85,18 @@
                     @Html.TextBoxFor(model => model.Sales, new { data_bind = "kendoNumericTextBox: { format: 'c', value: sales }" })
                 </span>
             </div>
+            <div class="storeLine">
+                <span class="storeLabels">Latitude</span>
+                <span>
+                    @Html.TextBoxFor(model => model.Latitude, new { data_bind = "kendoNumericTextBox: { value: latitude }" })
+                        </span>
+            </div>
+            <div class="storeLine">
+                <span class="storeLabels">Longitude</span>
+                <span>
+                    @Html.TextBoxFor(model => model.Longitude, new { data_bind = "kendoNumericTextBox: { value: longitude }" })
+                </span>
+            </div>
         </div>
     }
 

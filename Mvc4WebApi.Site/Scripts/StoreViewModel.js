@@ -27,6 +27,8 @@
     self.idSearch.subscribe(function () {
         self.filterStores();
     });
+    self.latitude = ko.observable();
+    self.longitude = ko.observable();
     self.name = ko.observable();
     self.nameSearch = ko.observable();
     self.nameSearch.subscribe(function () {
@@ -147,6 +149,8 @@
                     self.territoryCombo.value(result.TerritoryId);
                 }
                 self.sales(result.Sales);
+                self.latitude(result.Latitude);
+                self.longitude(result.Longitude);
             },
             type: 'GET',
             url: 'api/StoreApi/'

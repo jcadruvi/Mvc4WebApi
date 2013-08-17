@@ -2,3 +2,7 @@
     filter: "contains",
     suggest: true
 }
+
+ko.bindingHandlers.kendoNumericTextBox.options = {
+    format: "#,##0",
+}

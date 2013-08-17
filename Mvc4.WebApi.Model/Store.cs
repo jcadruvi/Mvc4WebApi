@@ -20,5 +20,7 @@ namespace Mvc4.WebApi.Model
         public int? TerritoryId { get; set; }
         public string TerritoryName { get; set; }
         public decimal? Sales { get; set; }
+        public decimal? Latitude { get; set; }
+        public decimal? Longitude { get; set; }
     }
 }
