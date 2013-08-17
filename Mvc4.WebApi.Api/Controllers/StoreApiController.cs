@@ -27,7 +27,7 @@ namespace Mvc4.WebApi.Api.Controllers
         /// Delete a Store by the id.
         /// </summary>
         [HttpDelete]
-        public void Delete([ModelBinder] Store store)
+        public void Store([ModelBinder] Store store)
         {
             if (store.Id.HasValue)
             {

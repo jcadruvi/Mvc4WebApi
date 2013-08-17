@@ -84,7 +84,7 @@ Once a store detail is displayed the user can save or delete the store. The save
 When the user deletes a Store the Delete method of the StoreApi controller is called. The following is the definition of the Delete method:
 
 	[HttpDelete]
-	public void Delete([ModelBinder] Store store)
+	public void Store([ModelBinder] Store store)
 	{
 		if (store.Id.HasValue)
 			_storeService.DeleteStore(store.Id.Value);
@@ -98,11 +98,13 @@ The AJAX call for the Delete method contains the id value that is used by the me
 	
 In the case of the Delete method a complex type of Store is used. This means that Web API will try to get the value from the body using media-type formatter. In our case the value is in the URI and we want Web API to use model binding. Adding the [ModelBinder] attribute to the parameter of the Delete action tells Web API that it should use a model binder and not a media-type formatter. There are two other approaches that would work for the delete method. The first approach is to use the [FromUri] attribute like the following:
 	
-	public void Delete([FromUri] Store store)
+	[HttpDelete]
+	public void Store([FromUri] Store store)
 	
 Adding the [FromUri] attribute tells Web API to use the URI and not the body for the parameter. The second approach is to use a simply type like the following:
 
-	public void Delete(int id)
+	[HttpDelete]
+	public void Store(int id)
 	
 Using a simple type will mean Web API will use the URI to get the parameter which is where the value of id is located.
 
