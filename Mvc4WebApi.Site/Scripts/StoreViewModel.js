@@ -161,10 +161,5 @@
         $('#storeGrid').data('kendoGrid').dataSource.read();
     };
 
-    self.setObservables = function() {
-        
-        
-    };
-
     return self;
 }
