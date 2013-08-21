@@ -68,7 +68,7 @@
             <div class="storeLine">
                 <span class="storeLabels">District</span>
                 <span>
-                    @Html.TextBoxFor(model => model.DistrictId, new { data_bind="kendoComboBox: { change: districtOptions.change, data: districtData, dataTextField: 'Value', dataValueField: 'Key', value: district }"})
+                    @Html.TextBoxFor(model => model.DistrictId, new { data_bind="kendoComboBox: { change: districtOptions.change, data: districtData, dataTextField: 'Value', dataValueField: 'Key', value: district }", @id="districtId" })
                 </span>
             </div>
             <div class="storeLine">@Html.ValidationMessageFor(model => model.DistrictId)</div>
@@ -226,62 +226,11 @@
                   '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" data-bind="value: numberSearch" style="width:100%;" /></span></td>' +
                   '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" data-bind="value: citySearch" style="width:100%;" /></span></td>' +
                   '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" data-bind="value: stateSearch"   style="width:100%;" /></span></td>' +
-                  '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchDistrict" style="width:100%;" /></td>' +
+                  '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchDistrict" data-bind="kendoComboBox: { change: districtOptions.change, data: districtData, dataTextField: \'Value\', dataValueField: \'Key\', value: districtSearch }" style="width:100%;" /></td>' +
                   '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchTerritory" style="width:100%;" /></td>' +
                   '</tr>');
         viewModel.storeGridData.thead.append(searchRow);
         ko.applyBindings(viewModel);
-        /*$('#territoryId').kendoComboBox({
-            autoBind: false,
-            cascadeFrom: "districtId",
-            dataTextField: "Value",
-            dataValueField: "Key",
-            dataSource: {
-                serverFiltering: true,
-                type: "json",
-                transport: {
-                    read: function (options) {
-                        var postData = {};
-                        postData.DistrictId = viewModel.district();
-                        $.ajax({
-                            data: postData,
-                            dataType: 'json',
-                            url: "api/TerritoryApi/Territories",
-                            success: function (result) {
-                                options.success(result);
-                            },
-                            type: "GET"
-                        });
-                    }
-                }
-            }
-        });
-        viewModel.territoryCombo = $('#territoryId').data('kendoComboBox');*/
-        $('#searchDistrict').kendoComboBox({
-            change: function () {
-                viewModel.territoryCombo.value(null);
-                viewModel.territoryCombo.dataSource.read();
-                viewModel.filterStores();
-            },
-            dataTextField: 'Value',
-            dataValueField: 'Key',
-            dataSource: {
-                type: "json",
-                transport: {
-                    read: function (options) {
-                        $.ajax({
-                            url: "api/DistrictApi/Districts",
-                            success: function (result) {
-                                options.success(result);
-                            },
-                            type: "GET"
-                        });
-                    }
-                }
-            },
-            filter: "contains",
-            suggest: true
-        });
         $('#searchTerritory').kendoComboBox({
             autoBind: false,
             cascadeFrom: "searchDistrict",
@@ -296,7 +245,7 @@
                 transport: {
                     read: function (options) {
                         var postData = {};
-                        postData.DistrictId = $('#searchDistrict').data('kendoComboBox').value();
+                        postData.DistrictId = viewModel.districtSearch();
                         $.ajax({
                             data: postData,
                             dataType: 'json',

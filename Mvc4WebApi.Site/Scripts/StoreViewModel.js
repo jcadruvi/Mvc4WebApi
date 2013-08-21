@@ -21,6 +21,7 @@
             readTerritoryData();
         }
     };
+    self.districtSearch = ko.observable();
     self.id = ko.observable();
     self.idSearch = ko.observable();
     self.idSearch.subscribe(function () {
@@ -68,8 +69,8 @@
             filter[i] = { field: "City", operator: "startswith", value: self.citySearch() };
             i++;
         }
-        if (self.district() && self.district().length > 0) {
-            filter[i] = { field: "District", operator: "eq", value: self.district() };
+        if (self.districtSearch() && self.districtSearch().length > 0) {
+            filter[i] = { field: "District", operator: "eq", value: self.districtSearch() };
             i++;
         }
         if (self.idSearch() && self.idSearch().length > 0) {
