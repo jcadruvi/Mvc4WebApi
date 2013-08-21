@@ -18,8 +18,7 @@
     self.district = ko.observable();
     self.districtOptions = {
         change: function () {
-            self.territoryCombo.value(null);
-            self.territoryCombo.dataSource.read();
+            readTerritoryData();
         }
     };
     self.id = ko.observable();
@@ -52,8 +51,12 @@
         self.filterStores();
     });
     self.storeGridData = null;
-    self.territoryCombo = null;
-
+    self.territory = ko.observable();
+    self.territoryData = ko.observableArray();
+    self.territoryOptions = {
+        autoBind: false,
+        cascadeFrom: "districtId",
+    };
     self.filterStores = function () {
         var filter = new Array();
         var i = 0;
@@ -85,8 +88,8 @@
             filter[i] = { field: "State", operator: "startswith", value: self.stateSearch() };
             i++;
         }
-        if (self.territoryCombo.value() && self.territoryCombo.value().length > 0) {
-            filter[i] = { field: "Territory", operator: "eq", value: self.territoryCombo.value() };
+        if (self.territory() && self.territory().length > 0) {
+            filter[i] = { field: "Territory", operator: "eq", value: self.territory() };
             i++;
         }
         self.storeGridData.dataSource.filter(filter);
@@ -102,6 +105,23 @@
             return null;
         }
         return dataItem.Id;
+    };
+
+    var readTerritoryData = function () {
+        if (!self.district()) {
+            return;
+        }
+        var postData = {};
+        postData.DistrictId = self.district();
+        $.ajax({
+            data: postData,
+            dataType: 'json',
+            url: "api/TerritoryApi/Territories",
+            success: function (result) {
+                self.territoryData(result);
+            },
+            type: "GET"
+        });
     };
 
     self.onDeleteClick = function() {
