@@ -58,6 +58,8 @@
         autoBind: false,
         cascadeFrom: "districtId",
     };
+    self.territorySearch = ko.observable();
+    self.territorySearchData = ko.observableArray();
     self.filterStores = function () {
         var filter = new Array();
         var i = 0;
@@ -180,6 +182,23 @@
 
     self.onStoreSuccess = function () {
         $('#storeGrid').data('kendoGrid').dataSource.read();
+    };
+
+    self.readTerritorySearchData = function () {
+        if (!self.districtSearch()) {
+            return;
+        }
+        var postData = {};
+        postData.DistrictId = self.districtSearch();
+        $.ajax({
+            data: postData,
+            dataType: 'json',
+            url: "api/TerritoryApi/Territories",
+            success: function (result) {
+                self.territorySearchData(result);
+            },
+            type: "GET"
+        });
     };
 
     return self;

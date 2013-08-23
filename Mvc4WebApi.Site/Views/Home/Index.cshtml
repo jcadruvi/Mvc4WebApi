@@ -226,12 +226,12 @@
                   '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" data-bind="value: numberSearch" style="width:100%;" /></span></td>' +
                   '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" data-bind="value: citySearch" style="width:100%;" /></span></td>' +
                   '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" data-bind="value: stateSearch"   style="width:100%;" /></span></td>' +
-                  '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchDistrict" data-bind="kendoComboBox: { change: districtOptions.change, data: districtData, dataTextField: \'Value\', dataValueField: \'Key\', value: districtSearch }" style="width:100%;" /></td>' +
-                  '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchTerritory" style="width:100%;" /></td>' +
+                  '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchDistrict" data-bind="kendoComboBox: { change: readTerritorySearchData, data: districtData, dataTextField: \'Value\', dataValueField: \'Key\', value: districtSearch }" style="width:100%;" /></td>' +
+                  '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" data-bind="kendoComboBox: { autoBind: territoryOptions.autoBind, change: filterStores, cascadeFrom: \'searchDistrict\', data: territorySearchData, dataTextField: \'Value\', dataValueField: \'Key\', value: territorySearch }" style="width:100%;" /></td>' +
                   '</tr>');
         viewModel.storeGridData.thead.append(searchRow);
         ko.applyBindings(viewModel);
-        $('#searchTerritory').kendoComboBox({
+        /*$('#searchTerritory').kendoComboBox({
             autoBind: false,
             cascadeFrom: "searchDistrict",
             change: function() {
@@ -260,7 +260,7 @@
             },
             filter: "contains",
             suggest: true
-        });
+        });*/
         $(document).ready(function () {
             $('section .k-combobox').css('width', '170px');
             $('section .k-numerictextbox').css('width', '170px');
