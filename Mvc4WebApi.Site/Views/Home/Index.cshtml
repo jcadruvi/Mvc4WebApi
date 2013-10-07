@@ -264,6 +264,8 @@
         });
         viewModel.$searchTerritoryData = $('#searchTerritory').data('kendoComboBox');
         $(document).ready(function () {
+            $(".mobitorGridFilteredDropdownSearch").closest(".k-widget").css("width", "92%");
+            $(".mobitorGridFilteredDropdownSearch").closest(".k-widget").find(".k-dropdown-wrap").css("width", "82%");
             $('section .k-combobox').css('width', '170px');
             $('section .k-numerictextbox').css('width', '170px');
         });
