@@ -2,6 +2,8 @@
 
     var self = {};
 
+    self.$searchTerritoryData = null;
+
     self.city = ko.observable();
     self.citySearch = ko.observable();
     self.citySearch.subscribe(function () {
@@ -21,7 +23,7 @@
             readTerritoryData();
         }
     };
-    self.districtSearch = ko.observable();
+    self.districtSearchWidget = ko.observable();
     self.id = ko.observable();
     self.idSearch = ko.observable();
     self.idSearch.subscribe(function () {
@@ -71,8 +73,8 @@
             filter[i] = { field: "City", operator: "startswith", value: self.citySearch() };
             i++;
         }
-        if (self.districtSearch() && self.districtSearch().length > 0) {
-            filter[i] = { field: "District", operator: "eq", value: self.districtSearch() };
+        if (self.districtSearchWidget() && self.districtSearchWidget().value().length > 0) {
+            filter[i] = { field: "District", operator: "eq", value: self.districtSearchWidget().value() };
             i++;
         }
         if (self.idSearch() && self.idSearch().length > 0) {
@@ -182,23 +184,6 @@
 
     self.onStoreSuccess = function () {
         $('#storeGrid').data('kendoGrid').dataSource.read();
-    };
-
-    self.readTerritorySearchData = function () {
-        if (!self.districtSearch()) {
-            return;
-        }
-        var postData = {};
-        postData.DistrictId = self.districtSearch();
-        $.ajax({
-            data: postData,
-            dataType: 'json',
-            url: "api/TerritoryApi/Territories",
-            success: function (result) {
-                self.territorySearchData(result);
-            },
-            type: "GET"
-        });
     };
 
     return self;
