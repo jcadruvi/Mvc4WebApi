@@ -168,6 +168,7 @@
                     model: {
                         id: "Id",
                         fields: {
+                            Id: { type: "string" },
                             RetailerId: { type: "number" },
                             RetailerName: { type: "string" },
                             Name: { type: "string" },
@@ -226,7 +227,7 @@
                   '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" data-bind="value: numberSearch" style="width:100%;" /></span></td>' +
                   '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" data-bind="value: citySearch" style="width:100%;" /></span></td>' +
                   '<td><span class="k-widget k-autocomplete k-header k-state-default"><input class="k-input" type="search" data-bind="value: stateSearch"   style="width:100%;" /></span></td>' +
-                  '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchDistrict" data-bind="kendoComboBox: { data: districtData, dataTextField: \'Value\', dataValueField: \'Key\', widget: districtSearchWidget }" style="width:100%;" /></td>' +
+                  '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchDistrict" data-bind="kendoComboBox: { change: onDistrictSearchChange, data: districtData, dataTextField: \'Value\', dataValueField: \'Key\', widget: districtSearchWidget }" style="width:100%;" /></td>' +
                   '<td><input class="mobitorGridFilteredDropdownSearch mobitorSearch" id="searchTerritory" }" style="width:100%;" /></td>' +
                   '</tr>');
         viewModel.storeGridData.thead.append(searchRow);

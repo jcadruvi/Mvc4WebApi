@@ -62,6 +62,7 @@
     };
     self.territorySearch = ko.observable();
     self.territorySearchData = ko.observableArray();
+
     self.filterStores = function () {
         var filter = new Array();
         var i = 0;
@@ -74,7 +75,7 @@
             i++;
         }
         if (self.districtSearchWidget() && self.districtSearchWidget().value().length > 0) {
-            filter[i] = { field: "District", operator: "eq", value: self.districtSearchWidget().value() };
+            filter[i] = { field: "DistrictId", operator: "eq", value: self.districtSearchWidget().value() };
             i++;
         }
         if (self.idSearch() && self.idSearch().length > 0) {
@@ -93,8 +94,8 @@
             filter[i] = { field: "State", operator: "startswith", value: self.stateSearch() };
             i++;
         }
-        if (self.territory() && self.territory().length > 0) {
-            filter[i] = { field: "Territory", operator: "eq", value: self.territory() };
+        if (self.$searchTerritoryData.value() && self.$searchTerritoryData.value().length > 0) {
+            filter[i] = { field: "TerritoryId", operator: "eq", value: self.$searchTerritoryData.value() };
             i++;
         }
         self.storeGridData.dataSource.filter(filter);
@@ -149,6 +150,10 @@
             type: 'DELETE',
             url: 'api/StoreApi?id=' + id
         });
+    };
+
+    self.onDistrictSearchChange = function () {
+        self.filterStores();
     };
 
     self.onStoreGridChanged = function() {
