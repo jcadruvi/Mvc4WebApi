@@ -68,14 +68,14 @@
             <div class="storeLine">
                 <span class="storeLabels">District</span>
                 <span>
-                    @Html.TextBoxFor(model => model.DistrictId, new { data_bind="kendoComboBox: { change: districtOptions.change, data: districtData, dataTextField: 'Value', dataValueField: 'Key', value: district }", @id="districtId" })
+                    @Html.TextBoxFor(model => model.DistrictId, new { data_bind="kendoComboBox: { change: districtOptions.change, data: districtData, dataTextField: 'Value', dataValueField: 'Key', value: district, widget: districtWidget }", @id="districtId" })
                 </span>
             </div>
             <div class="storeLine">@Html.ValidationMessageFor(model => model.DistrictId)</div>
             <div class="storeLine">
                 <span class="storeLabels">Territory</span>
                 <span>
-                    @Html.TextBoxFor(model => model.TerritoryId, new { data_bind = "kendoComboBox: { autoBind: territoryOptions.autoBind, cascadeFrom: territoryOptions.cascadeFrom, data: territoryData, dataTextField: 'Value', dataValueField: 'Key', value: territory }" })
+                    @Html.TextBoxFor(model => model.TerritoryId, new { @id="territoryId" })
                 </span>
             </div>
             <div class="storeLine">@Html.ValidationMessageFor(model => model.TerritoryId)</div>
@@ -232,6 +232,34 @@
                   '</tr>');
         viewModel.storeGridData.thead.append(searchRow);
         ko.applyBindings(viewModel);
+        $('#territoryId').kendoComboBox({
+            autoBind: false,
+            cascadeFrom: "districtId",
+            dataTextField: "Value",
+            dataValueField: "Key",
+            dataSource: {
+                serverFiltering: true,
+                type: "json",
+                transport: {
+                    read: function (options) {
+                        var postData = {};
+                        postData.DistrictId = viewModel.districtWidget().value();
+                        $.ajax({
+                            data: postData,
+                            dataType: 'json',
+                            url: "api/TerritoryApi/Territories",
+                            success: function (result) {
+                                options.success(result);
+                            },
+                            type: "GET"
+                        });
+                    }
+                }
+            },
+            filter: "contains",
+            suggest: true
+        });
+        viewModel.$territoryData = $('#territoryId').data('kendoComboBox');
         $('#searchTerritory').kendoComboBox({
             autoBind: false,
             cascadeFrom: "searchDistrict",

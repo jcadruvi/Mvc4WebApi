@@ -3,6 +3,7 @@
     var self = {};
 
     self.$searchTerritoryData = null;
+    self.$territoryData = null;
 
     self.city = ko.observable();
     self.citySearch = ko.observable();
@@ -10,6 +11,7 @@
         self.filterStores();
     });
     self.districtData = ko.observableArray();
+    self.districtWidget = ko.observable();
     $.ajax({
         url: "api/DistrictApi/Districts",
         success: function (result) {
@@ -175,8 +177,8 @@
                 if (self.retailerIdCombo) {
                     self.retailerIdCombo.value(result.RetailerId);
                 }
-                if (self.territoryCombo) {
-                    self.territoryCombo.value(result.TerritoryId);
+                if (self.$territoryData) {
+                    self.$territoryData.value(result.TerritoryId);
                 }
                 self.sales(result.Sales);
                 self.latitude(result.Latitude);
